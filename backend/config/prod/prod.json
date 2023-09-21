@@ -1,0 +1,37 @@
+{
+    "stories_folder": "stories",
+    "assets_folder": "assets",
+    "input_paths":{
+        "imgs":"inputs/imgs/"
+    },
+    "ImgDreamStudio": {
+        "engines": {
+            "inpainting_engine": "stable-inpainting-512-v2-0",
+            "generation_engine": "stable-diffusion-xl-beta-v2-2-2"
+        },
+        "output_paths": {
+            "generation_save_path": "outputs/dreamstudio/generation_imgs/",
+            "inpaint_save_path": "outputs/dreamstudio/inpaint_imgs/"
+        }
+    },
+    "ImgProcess":{
+        "models":{
+            "onnx":"models/onnx_model_multi_quantized.onnx",
+            "checkpoint":"models/sam_vit_h_4b8939.pth"
+        },
+        "masks":{
+            "output_paths":{
+                "masks":"outputs/masks/",
+                "except_masks":"outputs/except_masks/"
+            },
+            "input_paths":{
+                "imgs":"inputs/imgs/"
+            }
+        },
+        "blips":{
+            "output_paths":{
+                "blips":"outputs/blips/"
+            }
+        }
+    }
+}
