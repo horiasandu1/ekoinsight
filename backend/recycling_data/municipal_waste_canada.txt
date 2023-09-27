@@ -1,0 +1,122 @@
+from site: https://www150.statcan.gc.ca/n1/pub/16-002-x/2007001/article/10174-eng.htm
+
+Avani Babooram and Jennie Wang
+
+There is concern that Canada's landfills are reaching capacity and it is becoming increasingly difficult to find sites for new ones.1 Landfills also produce approximately 25% of Canada's methane emissions (methane is a powerful greenhouse gas).2 Recycling can help reduce the amount of waste entering landfills and help conserve natural resources.
+
+Access to recycling programs has improved since the mid-1990s and Canadian households are recycling larger quantities than ever before. Income and education have little impact on recycling behaviour; households with access to recycling programs tend to use them equally.
+
+However, differences in levels of access are apparent depending on dwelling type. Canadians who live in single detached homes are more likely to have access to recycling services than Canadians living in mobile homes or apartments.
+
+What you should know about this study
+How much do we recycle?
+Household access to and use of recycling programs
+Factors affecting household recycling
+ 
+
+What you should know about this study
+This study is based on data from the 2004, 2002, and 2000 Waste Management Industry Survey, the 2006 Households and the Environment Survey (HES), conducted as part of the Canadian Environmental Sustainability Indicators project, and the 1994 Households and the Environment Survey.
+
+The Waste Management Survey publishes data on the tonnage of waste disposed and diverted, by source.
+
+Residential recyclable materials include solid non-hazardous materials produced in residences including materials that are picked up by the municipality (either using its own staff or through contracting firms) and materials from residential sources that are self-hauled to depots, transfer stations and disposal facilities. Data do not cover any wastes that are managed on-site by the waste generator.
+
+For the Households and the Environment Survey, access to a recycling program indicates that households reported that they had access to a municipally- or privately-operated collection system, including curb-side pick-up or drop-off centres or depots.
+
+
+Top of Page
+How much do we recycle?
+In 2004, Canadian households produced 13.4 million tonnes of waste. Nearly three-quarters (73%) of this waste was sent for disposal, according to Statistics Canada's 2004 Waste Management Survey, while the rest was recycled.3
+
+Residential waste production increased by 2.1 million tonnes (19%) between 2000 and 2004. While some of the increase was due to a rise in population, most was a result of increases in the amount of waste generated per person. Canadians produced 366 kg per person of residential waste in 2000; by 2004, this figure had increased to 418 kg per person. By way of comparison, residential waste production by our neighbours in the United States was 440 kg per person in 2001.4
+
+Recycling is becoming a more popular method of dealing with trash. Two-thirds of the increase in waste generation between 2000 and 2004 was offset by increased recycling, while the other third was disposed of in landfills and incinerators. Households across the country sent nearly 3.6 million tonnes of materials for recycling in 2004, an increase of 65% compared to 2000 (Table 1).
+
+Table 1 Canadians recycling more and more, 2000 to 2004. Opens a new browser window.
+Table 1
+Canadians recycling more and more, 2000 to 2004
+
+The average Canadian recycled 112 kg of material in 2004 compared to 71 kg in 2000. The residential recycling rate—the amount diverted as a proportion of waste generated—also increased between 2000 and 2004, with 27% of residential waste going for recycling in 2004 compared to 19% in 2000.
+
+While on the rise overall, recycling varies quite widely from province to province. Ontario and Quebec recycle the largest quantities of materials, but the amounts of material recycled per person and the recycling rate are higher in Nova Scotia and British Columbia.
+
+By weight, organics comprise the largest portion, accounting for 22% of recycled materials from all sources,5 followed by newsprint (17%) and cardboard and boxboard (17%). Materials such as yard and food waste, paper, cardboard, metals, plastics and other materials can all be composted or recycled, although the availability of recycling programs differs across the country.
+
+
+Top of Page
+Household access to and use of recycling programs
+While it is useful to look at recycling in terms of the amount of residential waste recycled by province, it is also useful to examine the availability of recycling programs to households across the country. Different levels of access to recycling programs between provinces could help explain the differences in provincial recycling rates.
+
+Data from Statistics Canada's 2006 Households and the Environment Survey (HES) show that, overall, Canadians had high access to glass, paper, plastic and metals recycling programs.6 Ninety-three percent of the nation's households had access to at least one form of recycling program. Of these households, 97% made use of at least one recycling program (Chart 1).
+
+Chart 1 Access to and use of any recycling program, by province, 2006. Opens a new browser window.
+Chart 1
+Access to and use of any recycling program, by province, 2006
+
+Table 2 Households that had access to and used recycling programs, by province, 2006. Opens a new browser window.
+Table 2
+Households that had access to and used recycling programs, by province, 2006
+
+There was some variability in access to and use of recycling programs from province to province (Table 2). Prince Edward Island led the pack for both access and utilisation: 99% of households reported having access to and making use of at least one recycling program.
+
+Nova Scotia and Ontario rounded out the top three for both access to and use of recycling programs for glass, paper, plastics and metal cans. Overall, 97% of Nova Scotia households and 95% of Ontario households had access to at least one recycling program. Usage of one or more programs was also high in those parts of the country.
+
+Looking at provinces that lagged in terms of access to recycling programs, Alberta, New Brunswick and Newfoundland and Labrador provided below-median access to recycling programs. However, the large majority of households with access to recycling used at least one recycling program in these provinces.
+
+Manitoba was below the median for use of all recycling programs. While 90% of households in the province had access to recycling programs, only 88% of these households recycled, making Manitobans least likely to recycle.
+
+In general, provinces offered fairly comprehensive access to recycling programs for different materials. Eighty-eight percent of households had access to glass and paper recycling programs, 87% had access to plastic recycling, and 86% had access to recycling for metal cans.
+
+The notable exception is Newfoundland and Labrador, where only 35% of households had access to paper recycling, 61% had access to metal recycling, and 72% and 75% had access to plastic and glass recycling.
+
+Households were almost equally likely to use recycling programs for all recyclable materials, as long as they had access. The exceptions were for paper recycling in Newfoundland and Labrador and New Brunswick. Use of paper recycling in Newfoundland and Labrador was only 74%, while it was 90% and above for the other recyclable materials. Only 83% of New Brunswick households recycled their paper products, while it was 92% and above for glass, metals and plastics.
+
+Has access and use improved from 1994 to 2006?
+Overall, Canadian access to glass, paper, plastic and metal recycling programs all improved between 1994 and 2006 (Chart 2). This was also true in each province except for New Brunswick, where access to glass and metal recycling declined slightly.
+
+Use of recycling programs by Canadian households increased between 1994 and 2006 for all recyclable materials, at both the national and provincial level (Chart 3). Canadians may have become more aware of the importance of recycling, or there may have been improvements in municipal collection programs and methods.
+
+Chart 2 Percentage of Canadian households with access to recycling programs, 1994 and 2006. Opens a new browser window.
+Chart 2
+Percentage of Canadian households with access to recycling programs, 1994 and 2006
+
+Chart 3 Percentage of Canadian households with access to recycling programs that used them, 1994 and 2006. Opens a new browser window.
+Chart 3
+Percentage of Canadian households with access to recycling programs that used them, 1994 and 2006
+
+Of the provinces, Prince Edward Island showed the greatest improvement between 1994 and 2006. By 2006, Prince Edward Island had displaced Ontario, the front runner in 1994, for first place in access and use for all but one recycling program. In 1994, in Prince Edward Island there was less than 21% access to recycling programs for each recyclable material, and household use of each recycling program was below 70%. In 2006, Islanders' access and use for each recycling program rose to above 95%.
+
+
+Top of Page
+Factors affecting household recycling
+Having access to recycling programs is one of the key factors that determines whether Canadians recycle. Although access varies by province and municipality, results of the 2006 HES show that it also differs according to social and economic characteristics.
+
+Many factors influence the willingness to recycle, including social norms, promotional and information campaigns, and barriers to recycling such as collection method, distance to drop-off location and required sorting of materials.7
+
+Previous studies have linked income, education and recycling behaviour.8 Another study using data from the 1991 Household Facilities and Equipment Survey showed that education, income, and apartment dwelling were significant predictors of access to recycling programs, but that these factors played a lesser role in determining the actual use of recycling programs.9
+
+Results of the 2006 HES show that access to recycling programs depends on dwelling type. Differences in access are also apparent based on income and education, important indicators that can influence whether households own or rent, and whether they live in detached homes or apartments. On average, Canadians with a higher level of education also have higher incomes.10 At the same time, household income affects dwelling type and size.11
+
+Access to recycling was highest for those living in single detached homes, with 96% having access to a recycling program. Households living in mobile homes and apartment buildings were less likely to have access to recycling programs. Ninety percent of households in mobile homes had access, compared to 85% in low-rise apartments.  
+
+Households with the highest levels of income and education were more likely to have access to recycling services. On average, 98% of households with an income greater than $80,000 had access to recycling compared to 89% of households with an income less than $40,000. As well, 95% of households with at least one university graduate had access to recycling programs, while only 87% of households where no one had completed high school had access.
+
+The 2006 HES showed that the vast majority of households with access to recycling do make use of these programs. Despite their impact on access to recycling, factors such as household income, education level and dwelling type had little impact on the use of recycling programs.
+
+Given access to recycling, 97% of households took advantage of at least one of these programs, with no significant difference based on different levels of household income.12 Education only had a slight impact on recycling behaviour.
+
+Given access to recycling programs, the type of dwelling also had little impact on the likelihood households recycled—97% of households in single detached homes recycled compared to 95% in low-rise apartments.
+
+Footnotes
+Environment Canada, 2003, The 4 R's – Reduce, Reuse, Recycle, and Recover,  www.atl.ec.gc.ca/udo/reuse.html (accessed March 28, 2007).
+Environment Canada, 2006, National Inventory Report, Greenhouse Gas Sources and Sinks in Canada, 1990 to 2004, Gatineau.
+Statistics Canada, 2007, Waste Management Industry Survey: Business and Government Sectors, Statistics Canada Catalogue no. 16F0023XIE, Ottawa.
+Organisation for Economic Co-operation and Development, 2005, OECD Environmental Data Compendium 2004, Paris.
+Information on waste recycled by type of material is unavailable at the residential level. Data are available for all sources including residential, industrial, commercial and institutional (ICI) and construction and demolition (C&D) sources.
+Statistics Canada, 2007, Households and the Environment, 2006, Catalogue no. 11-526-XIE, Ottawa.
+Wesley, P. Schultz, Stuart Oskamp and Tina Mainieri, 1995, "Who recycles and when? A review of personal and situational factors," Journal of Environmental Psychology, Vol. 15. p. 105-121.
+Wesley, P. Schultz, Stuart Oskamp and Tina Mainieri, "Who recycles and when?".
+Ida E. Berger, 1997, "The demographics of recycling and the structure of environmental behaviour," Environment and Behavior, Vol. 29, no. 4, July, p. 515-541.
+Statistics Canada, 2006, Report of the Pan-Canadian Education Indicators Program 2005, Statistics Canada Catalogue no. 81-582-XIE, Ottawa.
+Statistics Canada, 2006, "Measuring housing affordability," Perspectives on Labour and Income, Statistics Canada Catalogue no. 75-001-XIE, November 2006, Vol. 7, no. 11, Ottawa.
+At the 95% confidence level, there was no significant difference in recycling behaviour for different household income groups.

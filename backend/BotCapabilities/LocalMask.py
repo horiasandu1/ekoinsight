@@ -28,11 +28,10 @@ class LocalMask(BotClass):
         self.predictor = SamPredictor(sam)
         self.ort_session = onnxruntime.InferenceSession(self.onnx_model_path)#providers='CPUExecutionProvider'
 
-    def produce_mask(self,img_filename, img_path=None):
-        if not img_path:
-            img_path=self.img_input_dir
-        full_img_path=f'{img_path}{img_filename}'
-        image = cv2.imread(full_img_path)
+    def produce_mask(self, img_path):
+        img_filename=img_path.split("/")[-1]
+        img_path=f'{img_path}{img_filename}'
+        image = cv2.imread(img_path)
         image = self.resize_img(image, square=True)
 
         ###BLURRING IMAGE
@@ -97,10 +96,10 @@ class LocalMask(BotClass):
         )
         return f"{self.mask_output_dir}{img_filename}"
 
-    def mask_producer_dir(self):
-        for img_filename in tqdm(sorted(os.listdir(self.img_input_dir))):
-            if img_filename.endswith("jpg") or img_filename.endswith("png"):
-                self.produce_mask(img_filename=img_filename,img_path=f"{self.img_input_dir}/{img_filename}")
+    # def mask_producer_dir(self):
+    #     for img_filename in tqdm(sorted(os.listdir(self.img_input_dir))):
+    #         if img_filename.endswith("jpg") or img_filename.endswith("png"):
+    #             self.produce_mask(img_filename=img_filename,img_path=f"{self.img_input_dir}/{img_filename}")
 
     def produce_except_mask(self, img_filename):
         mask = cv2.imread(
@@ -244,5 +243,5 @@ class LocalMask(BotClass):
             )
         )
 
-    def execute(self,img_filename,img_path):
-        return self.produce_mask(img_filename=img_filename,img_path=img_path)
+    def execute(self,img_path):
+        return self.produce_mask(img_path=img_path)

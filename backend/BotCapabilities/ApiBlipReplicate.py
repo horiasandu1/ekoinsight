@@ -16,6 +16,7 @@ class ApiBlipReplicate(ApiReplicate):
         with open(local_filename, 'wb') as f:
             f.write(file_object)
 
+
     def get_main_subject(self,sentence="The cat sat on the mat."):
         sentence=sentence.lower().replace("caption","").replace(":","").strip()
         doc = self.nlp(sentence)
@@ -36,6 +37,7 @@ class ApiBlipReplicate(ApiReplicate):
                 break
 
         return main_subject
+
     
     def api_fetch(self,img_path,sfx_string="salesforce/blip:2e1dddc8621f72155f24cf2e0adbde548458d3cab9f00c0139eea840d0ac4746"):
         response='Caption : can of kombucha on windowsill'

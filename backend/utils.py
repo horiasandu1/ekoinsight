@@ -9,6 +9,18 @@ from tqdm import tqdm
 import os
 import re
 import json
+from langchain.document_loaders import DirectoryLoader
+from langchain.document_loaders.pdf import PyMuPDFLoader
+from langchain.document_loaders.xml import UnstructuredXMLLoader
+from langchain.document_loaders.csv_loader import CSVLoader
+from langchain.document_loaders import TextLoader
+
+loaders_dict = {
+    '.pdf': PyMuPDFLoader,
+    '.xml': UnstructuredXMLLoader,
+    '.csv': CSVLoader,
+    '.txt':TextLoader
+}
 
 def load_config():
     CONFIG_ENV=os.getenv("CONFIG_ENV","qa-local")
@@ -20,6 +32,18 @@ def check_create_folder(dir):
         os.makedirs(dir)
         print("created folder : ", dir)
 
+
+def sanitize_file_name(input_string):
+    # Remove characters that are not letters, digits, spaces, hyphens, underscores, or periods
+    sanitized_string = re.sub(r'[^\w\s\-\.]', '', input_string)
+    
+    # Replace spaces with underscores
+    sanitized_string = sanitized_string.replace(' ', '_')
+    
+    # Remove leading and trailing spaces
+    sanitized_string = sanitized_string.strip()
+    
+    return sanitized_string
 
 def resize_img(image,square=False,square_dim=512):
 
@@ -65,3 +89,36 @@ def resize_img(image,square=False,square_dim=512):
     return image
 
 
+
+def absolute_file_paths(directory):
+    for dirpath,_,filenames in os.walk(directory):
+        for f in filenames:
+            yield os.path.abspath(os.path.join(dirpath, f))
+
+
+
+def load_docs(directory):
+    # Create an instance of the DirectoryLoader with the provided directory path.
+    loader = DirectoryLoader(directory,use_multithreading=True)
+    # Use the loader to load the documents from the directory and store them in 'documents'.
+    documents = loader.load()
+    # Return the loaded documents.
+    return documents
+
+def create_directory_loader(file_type, directory_path):
+    return DirectoryLoader(
+        path=directory_path,
+        glob=f"**/*{file_type}",
+        loader_cls=loaders_dict[file_type],
+        loader_kwargs={"encoding":'utf8'}
+    )
+
+def get_loaders(dir="recycling_data_dir"):
+  extensions=loaders_dict.keys()
+  return [create_directory_loader(extension,dir) for extension in extensions]
+
+# Function to find the first URL in a given text
+def find_first_url(text):
+    url_pattern = r'https?://\S+'
+    match = re.search(url_pattern, text)
+    return match.group(0) if match else None

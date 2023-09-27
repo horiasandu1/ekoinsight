@@ -1,0 +1,132 @@
+from site: https://www.epa.gov/landfills/municipal-solid-waste-landfills
+
+Municipal Solid Waste Landfills
+Related Resources
+Advancing Sustainable Materials Management: Facts and Figures
+Landfill Methane Outreach Program
+On this page:
+
+What is a Municipal Solid Waste Landfill?
+Learn about Municipal Solid Waste Transfer Stations
+Regulations for Municipal Solid Waste Landfills
+Publications and Guidance for Municipal Solid Waste Landfills
+What is a Municipal Solid Waste Landfill?
+Definition
+Leachate - formed when rain water filters through wastes placed in a landfill. When this liquid comes in contact with buried wastes, it leaches, or draws out, chemicals or constituents from those wastes.
+
+A municipal solid waste landfill (MSWLF) is a discrete area of land or excavation that receives household waste. A MSWLF may also receive other types of nonhazardous wastes, such as commercial solid waste, nonhazardous sludge, conditionally exempt small quantity generator waste, and industrial nonhazardous solid waste. In 2009, there were approximately 1,908 MSWLFs in the continental United States all managed by the states where they are located.
+
+Non-hazardous solid waste is regulated under Subtitle D of RCRA. States play a lead role in ensuring the federal criteria for operating municipal solid waste and industrial waste landfills regulations are met, and they may set more stringent requirements. In absence of an approved state program, the federal requirements must be met by waste facilities. The revised criteria in Title 40 of the Code of Federal Regulations (CFR) part 258 addresses seven major aspects of MSWLFs, which include the following:
+
+Learn More
+Visit the EPA’s RCRA Laws and Regulations site to learn more about the laws that govern MSWLFs.
+
+Location restrictions—ensure that landfills are built in suitable geological areas away from faults, wetlands, flood plains or other restricted areas.
+Composite liners requirements—include a flexible membrane (i.e., geo-membrane) overlaying two feet of compacted clay soil lining the bottom and sides of the landfill. They are used to protect groundwater and the underlying soil from leachate releases.
+Leachate collection and removal systems—sit on top of the composite liner and removes leachate from the landfill for treatment and disposal.
+Operating practices—include compacting and covering waste frequently with several inches of soil.
+These practices help reduce odor, control litter, insects, and rodents, and protect public health.
+This image is a graphic of a cross-section of a properly closed municipal solid waste landfill.
+The image shows a cross-section of a municipal solid waste landfill. Click to enlarge.
+Groundwater monitoring requirements—requires testing groundwater wells to determine whether waste materials have escaped from the landfill.
+Closure and post-closure care requirements—include covering landfills and providing long-term care of closed landfills.
+Corrective action provisions—control and clean up landfill releases and achieves groundwater protection standards.
+Financial assurance—provides funding for environmental protection during and after landfill closure (i.e., closure and post-closure care).
+Some materials may be banned from disposal in MSWLFs, including common household items like paints, cleaners/chemicals, motor oil, batteries and pesticides. Leftover portions of these products are called household hazardous waste. These products, if mishandled, can be dangerous to your health and the environment. Many MSWLFs have a household hazardous waste drop-off station for these materials.
+
+MSWLFs can also receive household appliances (i.e. white goods) that are no longer needed. Many of these appliances, such as refrigerators or window air conditioners, rely on ozone-depleting refrigerants and their substitutes. MSWLFs follow the federal disposal procedures for household appliances that use refrigerants. EPA has general information on how refrigerants can damage the ozone layer and consumer information on the specifics for disposing of these appliances.
+
+Municipal Solid Waste Transfer Stations
+Resources
+Waste Transfer Stations: Involved Citizens Make the Difference
+Waste Transfer Stations: A Manual for Decision-Making
+Waste transfer stations are facilities where municipal solid waste (MSW) is unloaded from collection vehicles. The MSW is briefly held while it is reloaded onto larger long-distance transport vehicles (e.g. trains, trucks, barges) for shipment to landfills or other treatment or disposal facilities. Communities can save money on the labor and operating costs of transporting the waste to a distant disposal site by combining the loads of several individual waste collection trucks into a single shipment.
+
+They can also reduce the total number of trips traveling to and from the disposal site. Although waste transfer stations help reduce the impacts of trucks traveling to and from the disposal site, they can cause an increase in traffic in the immediate area where they are located. If not properly sited, designed and operated they can cause problems for residents living near them.
+
+Related Information
+In 1999, the National Environmental Justice Advisory Council undertook a study of the impacts that waste transfer stations have on poor and minority communities.
+
+A Regulatory Strategy for Siting and Operating Waste Transfer Stations provides information about waster transfer stations and the actions EPA has taken to address this issue.
+
+ 
+Regulations for Municipal Solid Waste Landfills
+The table below provides links to final and promulgated rules pertaining to the operation and management of MSWLFs. Background information and technical support documents are also available for several rulemakings.
+
+Rulemakings for MSWLFs
+Title
+
+Description
+
+Date of final rule
+
+Revisions to Criteria for MSW Landfills: Proposed & Final Rules, July 29, 1997 (PDF) (6 pp, 136 K, About PDF)
+
+The Land Disposal Program Flexibility Act of 1996 (LDPFA) directed the EPA Administrator to provide additional flexibility to approved states for any landfill that receives 20 tons or less of municipal solid waste per day. The additional flexibility applied to alternative frequencies of daily cover, frequencies of methane monitoring, infiltration layers for final cover, and means for demonstrating financial assurance. The additional flexibility allows owners and operators of small MSWLFs the opportunity to reduce their costs of MSWLF operations while still protecting human health and the environment. This direct final rule recognizes that these decisions are best made at the State and local level and, therefore, offers this flexibility to approved States.
+
+June 29, 1997
+
+Lead-Based Paint Rule and Supporting Materials 
+
+Criteria for Classification of Solid Waste Disposal Facilities and Practices and Criteria for MSWLFs: Disposal of Residential Lead-Based Paint Waste; Final Rule
+
+June 18, 2003
+
+MSW Landfill Location Restrictions for Airport Safety – Technical amendment
+
+EPA amended the location restriction section in the Criteria for MSWLFs under Resource Conservation and Recovery Act (RCRA) to add a note providing information about landfill siting requirements enacted in the Wendell H. Ford Aviation Investment and Reform Act for the 21st Century (Ford Act). The amendment does not change existing criteria under RCRA with respect to siting MSWLF units. Background information for this notice is available through Regulations.gov using docket number EPA-HQ-RCRA-2002-0034. More information can located using 67 FR 45948 and 67 FR 45915 at FederalRegister.gov.
+
+October 8, 2002
+
+Alternative Liner Performance, Leachate Recirculation, and Bioreactor Landfills: Request for Information and Data, April 6, 2000
+
+EPA considered revisions to the Criteria for MSWLs (40 CFR part 258) regarding the use of alternative liners when landfill leachate is recirculated and allowing the operation of landfills as more advanced bioreactors. EPA requested more information on these types of landfill processes to proceed with any revisions. Background information for this notice is available through Regulations.gov using docket number F-2000-ALPA-FFFFF. More information can located using 67 FR 45948 and 67 FR 45915 at FederalRegister.gov.
+
+April 6, 2000
+
+Publications and Guidance for Municipal Solid Waste Landfills
+The table below includes additional resources and guidance for the operation and management of MSWLFs.
+
+Guidance Documents, Memos, Reports and Fact Sheets
+Title
+
+Description
+
+Date
+
+Disposal of Domestic Birds Infected by Avian Influenza: An Overview of Considerations and Options
+
+Outlines critical factors in the avian influenza disposal process and includes a variety of both on and off site disposal/treatment options, information on cleaning and disinfecting disposal equipment, guidance on transporting infected materials for disposal, and contact information for local and state environmental, agricultural, health, and emergency response organizations.
+
+August 11, 2006
+
+Final Rule: Management of Certain Cattle Origin Material Pursuant to the Substances Prohibited from Use in Animal Food and Feed
+
+Alternate disposal methods for certain cattle origin materials is necessary, because of the Food and Drug Administration's final rule prohibiting the use of these materials in all animal feed, including pet food.
+
+April 27, 2009
+
+Clarification of April 6, 2004 Memo on Recommended Interim Practices for Disposal of Potentially Contaminated Chronic Wasting Disease Carcasses and Wastes (PDF)(5 pp, 21.2 K, About PDF)
+
+Memo to provide certain clarifications and revisions based on continuing discussions. These practices are particularly appropriate for landfills facing a relatively large number of carcasses from a particular culling or other event.
+
+November 2004
+
+Recommended Interim Practices for Disposal of Potentially Contaminated Chronic Wasting Disease Carcasses and Wastes (PDF)(4 pp, 39.8 K, About PDF)
+
+Memo to provide states and MSWLFs facility managers with options for the disposal of potentially contaminated chronic wasting disease carcasses and wastes in municipal solid waste landfills.
+
+April 2004
+
+Geo-synthetic Clay Liners Used in Municipal Solid Waste Landfills
+
+Fact sheet to provide information on geo-synthetic clay liners (GCLs) and presents case studies of successful applications.
+
+December 2001
+
+Landfill Reclamation
+
+Fact sheet to describe how landfill reclamation can be used to expand MSWLF capacity.
+
+July 1997
+

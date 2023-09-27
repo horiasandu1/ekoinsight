@@ -1,8 +1,8 @@
 {
     "stories_folder": "stories",
     "assets_folder": "assets",
-    "input_paths":{
-        "imgs":"inputs/imgs/"
+    "input_paths": {
+        "imgs": "inputs/imgs/"
     },
     "ImgDreamStudio": {
         "engines": {
@@ -14,23 +14,24 @@
             "inpaint_save_path": "outputs/dreamstudio/inpaint_imgs/"
         }
     },
-    "ImgProcess":{
-        "models":{
-            "onnx":"models/onnx_model_multi_quantized.onnx",
-            "checkpoint":"models/sam_vit_h_4b8939.pth"
+    "ImgProcess": {
+        "models": {
+            "onnx": "models/onnx_model_multi_quantized.onnx",
+            "checkpoint": "models/sam_vit_h_4b8939.pth"
         },
-        "masks":{
-            "output_paths":{
-                "masks":"outputs/masks/",
-                "except_masks":"outputs/except_masks/"
+        "masks": {
+            "output_paths": {
+                "masks": "outputs/masks/",
+                "except_masks": "outputs/except_masks/"
             },
-            "input_paths":{
-                "imgs":"inputs/imgs/"
+            "input_paths": {
+                "imgs": "inputs/imgs/",
+                "blurred_imgs": "inputs/blurred_imgs/"
             }
         },
-        "blips":{
-            "output_paths":{
-                "blips":"outputs/blips/"
+        "blips": {
+            "output_paths": {
+                "blips": "outputs/blips/"
             }
         }
     }

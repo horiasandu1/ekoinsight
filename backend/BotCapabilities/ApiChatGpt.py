@@ -6,7 +6,7 @@ from templates import *
 from langchain import PromptTemplate
 from langchain.llms import OpenAI
 from langchain.chat_models import ChatOpenAI
-
+from langchain.chains import RetrievalQA
 
 class ApiChatGpt(ApiOpenAi):
     def __init__(self,dry_run=False):
@@ -19,16 +19,18 @@ class ApiChatGpt(ApiOpenAi):
 
 
         
-    def fetch_prompt(self,item="metal can",prompt_template='pollution_prompt_template'):
+    def fetch_prompt(self,item="metal can",prompt_template='pollution_prompt_template',**kwargs):
         llm = OpenAI(model_name="gpt-4",temperature=self.temperature,openai_api_key=self.api_key)
 
-        prompt = PromptTemplate(
-            input_variables=["item"],
-            template=eval(prompt_template),
-        )
+        # prompt = PromptTemplate(
+        #     input_variables=["item"],
+        #     template=eval(prompt_template),
+        # )
+
+        prompt=eval(prompt_template)+f" {item}"
 
         if not self.dry_run:
-            story=llm(prompt.format(item=item))
+            story=llm(prompt)
             if self.as_string:
                 return story
 
@@ -46,6 +48,32 @@ class ApiChatGpt(ApiOpenAi):
         
         else:
             return "On an overfilled landfill, amidst other discarded objects, with the skyline painting a solemn picture of distant hills and dying trees"
+
+    
+    def fetch_using_index(self,query = "in 1990, how much paper was generated?"):
+        """
+        call self.produce_index_pinecone(self,index_name='cfc',docs_dir="recycling_data_dir",embeddings=None) first
+        """
+        self.produce_index_pinecone(index_name='cfc',docs_dir="recycling_data")
+
+        """working index
+        
+        VectorStoreRetriever(tags=['Pinecone', 'HuggingFaceEmbeddings'], metadata=None, vectorstore=<langchain.vectorstores.pinecone.Pinecone object at 0x0000025D5878E040>, search_type='mmr', search_kwargs={'k': 1})
+        
+        """
+
+        qa = RetrievalQA.from_chain_type(llm=OpenAI(temperature=0.5), chain_type="stuff", return_source_documents=True ,retriever=self.index.as_retriever(search_type='mmr',search_kwargs={"k":1}))
+        #qa = RetrievalQA.from_chain_type(llm=OpenAI(temperature=0.5), chain_type="stuff", return_source_documents=True ,retriever=self.index.as_retriever(search_kwargs={"k":4}))
+        #qa = RetrievalQA.from_chain_type(llm=OpenAI(temperature=0.5), chain_type="stuff",retriever=self.index.as_retriever(search_kwargs={"k":4}))
+
+        response = qa({"query": query}, return_only_outputs=True)
+        result=response['result']
+        source=response['source_documents'][0].metadata['source']
+
+        return {'result':result,'source':source}
+
+
+
 
     def fetch_story(self,recyclable_item=False,story_setting=False,obstacle=False,temperature=0.9,as_string=True,dry_run=False,nber_pages=5):
         """

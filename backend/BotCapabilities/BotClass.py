@@ -16,6 +16,7 @@ class BotClass():
             "output_paths"
         ]["except_masks"]
         self.img_input_dir = self.config["ImgProcess"]["masks"]["input_paths"]["imgs"]
+        self.blurred_img_input_dir = self.config["ImgProcess"]["masks"]["input_paths"]["blurred_imgs"]
         self.inpaint_output_dir = self.config["ImgDreamStudio"]["output_paths"][
             "inpaint_save_path"
         ]
@@ -29,6 +30,7 @@ class BotClass():
                 self.mask_output_dir,
                 self.except_mask_output_dir,
                 self.img_input_dir,
+                self.blurred_img_input_dir,
                 self.inpaint_output_dir,
                 self.generation_output_dir,
             ]

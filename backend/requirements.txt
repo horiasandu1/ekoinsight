@@ -10,7 +10,7 @@ matplotlib==3.8.0
 replicate==0.12.0
 langchain==0.0.292
 opencv-python==4.8.0.76
-pandas==2.1.0
+pandas
 requests==2.31.0
 tqdm==4.66.1
 Pillow==9.3.0
@@ -24,4 +24,10 @@ uvicorn
 fastapi
 python-multipart
 ibm-watson-machine-learning
-
+chromadb
+tiktoken
+pinecone-client
+llama_index==0.6.23
+unstructured
+sentence-transformers
+faiss-cpu

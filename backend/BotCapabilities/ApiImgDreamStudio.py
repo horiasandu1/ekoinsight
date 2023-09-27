@@ -5,7 +5,7 @@ import io
 from torchvision.transforms import GaussianBlur
 from BotCapabilities.ApiDreamStudio import ApiDreamStudio
 from BotCapabilities.BotClass import BotClass
-
+from utils import *
 
 class ApiImgDreamStudio(ApiDreamStudio):
     def __init__(self, dry_run=False):
@@ -93,11 +93,11 @@ class ApiImgDreamStudio(ApiDreamStudio):
                     )
                 if artifact.type == self.generation.ARTIFACT_IMAGE:
                     img = Image.open(io.BytesIO(artifact.binary))
-                    img.save(
-                        self.path + f"{prompt.replace(' ','')[:30]}.png"
+                    filename=sanitize_file_name(self.path + f"{prompt.replace(' ','')[:30]}.png")
+                    img.save(filename                      
                     )  # Save our generated images with their seed number as the filename.
-        print(f"saved inpainted img at {self.path}/{prompt.replace(' ','')[:30]}")
-        return self.path + f"{prompt.replace(' ','')[:30]}.png"
+        print(f"saved inpainted img at {filename}")
+        return filename
 
     def fetch_img(self, prompt, width=512, height=512):
         

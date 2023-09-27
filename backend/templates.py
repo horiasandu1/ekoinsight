@@ -25,17 +25,241 @@ Is there a fun fact about the recyclable material of the main character? Make su
 pollution_prompt_template="""
 I will give you a string of text. Inside the text there is reference to a particular item. Return a string of text describing where that item is likely to end up if it is not recycled. Describe the place as if it were a real place, with detail. 
 
-I want one line describing where it ends up. If you can, try to make some reference to nature to show how trash is affecting it. 
+I want one line describing where it ends up. If you can, try to make some reference to nature to show how trash is affecting it. Make sure the resulting area is realistic.
 
 Example:
 
-can of soda -> in a landfill surrounded by other trash. In the background you see some trees from a forest.
+can of soda
 
-plastic bottle -> on a beach next to other trash. In the background you see waves and animals in the distance
+in a landfill surrounded by other trash. In the background you see some trees from a forest.
 
-Make sure the resulting area is realistic.
+plastic bottle
 
-Give me the answer for {item}
+on a beach next to other trash. In the background you see waves and animals in the distance
+
+"""
+
+educate_prompt_template="""
+You are extremely knowledgeable in all things involving sustainability and recycling. Given an item, mention in bullet points form interesting statistics regarding where it would end up if not recycled. What could it be recycled into. What positive effects will come out of recycling. What more can be done and any other interesting facts.
+
+Output the information but in a python dictionary with categories associated with them depending on what type of information they are? Like positives, negatives, interesting_facts. Make sure everything is accurate, accuracy is of the upmost importance. I will provide you with one item. Only do produce data for that one item
+
+soda can
+
+soda_can_info = {
+    "positives": {
+        "Energy Conservation": "Recycling one aluminum can saves enough energy to power a laptop for up to five hours.",
+        "Greenhouse Gas Reduction": "Recycling aluminum reduces carbon emissions by approximately 95% compared to producing new aluminum."
+    },
+    "negatives": {
+        "Landfill Impact": "If not recycled, soda cans can take 200-500 years to decompose in landfills.",
+        "Waste Volume": "Over 60% of aluminum cans in the United States are currently recycled, but the remainder contributes to landfill waste."
+    },
+    "recycling_options": {
+        "New Aluminum Cans": "Soda cans can be recycled into new aluminum cans.",
+        "Other Aluminum Products": "They can also be used to make products like bicycle frames, car parts, and construction materials."
+    },
+    "interesting_facts": {
+        "Infinitely Recyclable": "Aluminum is infinitely recyclable, meaning it can be recycled repeatedly without losing quality.",
+        "Laptop Power": "The energy saved from recycling one aluminum can could indeed power a laptop for up to five hours.",
+        "Environmental Impact": "Recycling aluminum reduces the need for mining bauxite, which can harm ecosystems and water sources."
+    }
+    "likely_material_and_item":"aluminum can"
+}
+
+plastic bottle
+
+plastic_bottle_info = {
+    "positives": {
+        "Recyclability": "Plastic water bottles are recyclable and can be turned into various products."
+    },
+    "negatives": {
+        "Environmental Impact": "If not recycled, plastic bottles can take hundreds of years to decompose and contribute to plastic pollution.",
+        "Waste Volume": "Millions of plastic bottles end up in landfills each day worldwide."
+    },
+    "recycling_options": {
+        "New Plastic Bottles": "They can be recycled into new plastic bottles or containers.",
+        "Polyester Fabric": "Plastic bottles can also be used to create polyester clothing."
+    },    "interesting_facts": {
+        "Recycling Challenges": "Recycling plastic bottles faces challenges due to various plastic types and contamination issues."
+    },
+    "likely_material_and_item":"plastic bottle"
+}
+
+pizza box
+
+pizza_box_info = {
+    "positives": {
+        "Recyclability": "Cardboard pizza boxes are recyclable and can be turned into new paper products."
+    },
+    "negatives": {
+        "Contamination": "Grease and food residue can make some pizza boxes unrecyclable, leading to landfill disposal.",
+        "Resource Waste": "Discarding cardboard pizza boxes wastes valuable paper resources."
+    },
+    "recycling_options": {
+        "New Paper Products": "They can be recycled into new paper products like cardboard, paperboard, and more."
+    },
+    "interesting_facts": {
+        "Clean Before Recycling": "To ensure recycling, remove any leftover pizza and separate the greasy top from the clean bottom of the box."
+    },
+    "likely_material_and_item":"Cardboard box"
+}
+
+glass bottle
+
+glass_bottle_info = {
+    "positives": {
+        "Infinite Recyclability": "Glass bottles are 100% recyclable and can be recycled endlessly."
+    },
+    "negatives": {
+        "Landfill Impact": "If not recycled, glass bottles can take thousands of years to decompose in landfills.",
+        "Waste Volume": "Glass waste can fill landfills and contribute to environmental problems."
+    },
+    "recycling_options": {
+        "New Glass Products": "Glass bottles can be recycled into new glass containers, bottles, and fiberglass."
+    },
+    "interesting_facts": {
+        "Endless Recycling": "Glass recycling preserves resources and reduces energy consumption in production."
+    },
+    "likely_material_and_item":"glass bottle"
+}
+
+"""
+
+
+ibm_educate_prompt_template="""
+You are extremely knowledgeable in all things involving sustainability and recycling. Given an item, mention in bullet points form interesting statistics regarding where it would end up if not recycled. What could it be recycled into. What positive effects will come out of recycling. What more can be done and any other interesting facts.
+
+Output the information but in a python dictionary with categories associated with them depending on what type of information they are? Like positives, negatives, interesting_facts. Make sure everything is accurate, accuracy is of the upmost importance. I will provide you with one item. Only do produce data for that one item
+
+soda can
+
+soda_can_info = {
+    "positives": {
+        "Energy Conservation": "Recycling one aluminum can saves enough energy to power a laptop for up to five hours.",
+        "Greenhouse Gas Reduction": "Recycling aluminum reduces carbon emissions by approximately 95% compared to producing new aluminum."
+    },
+    "negatives": {
+        "Landfill Impact": "If not recycled, soda cans can take 200-500 years to decompose in landfills.",
+        "Waste Volume": "Over 60% of aluminum cans in the United States are currently recycled, but the remainder contributes to landfill waste."
+    },
+    "recycling_options": {
+        "New Aluminum Cans": "Soda cans can be recycled into new aluminum cans.",
+        "Other Aluminum Products": "They can also be used to make products like bicycle frames, car parts, and construction materials."
+    },
+    "interesting_facts": {
+        "Infinitely Recyclable": "Aluminum is infinitely recyclable, meaning it can be recycled repeatedly without losing quality.",
+        "Laptop Power": "The energy saved from recycling one aluminum can could indeed power a laptop for up to five hours.",
+        "Environmental Impact": "Recycling aluminum reduces the need for mining bauxite, which can harm ecosystems and water sources."
+    }
+    "likely_material_and_item":"aluminum can"
+}
+END
+
+plastic bottle
+
+plastic_bottle_info = {
+    "positives": {
+        "Recyclability": "Plastic water bottles are recyclable and can be turned into various products."
+    },
+    "negatives": {
+        "Environmental Impact": "If not recycled, plastic bottles can take hundreds of years to decompose and contribute to plastic pollution.",
+        "Waste Volume": "Millions of plastic bottles end up in landfills each day worldwide."
+    },
+    "recycling_options": {
+        "New Plastic Bottles": "They can be recycled into new plastic bottles or containers.",
+        "Polyester Fabric": "Plastic bottles can also be used to create polyester clothing."
+    },    "interesting_facts": {
+        "Recycling Challenges": "Recycling plastic bottles faces challenges due to various plastic types and contamination issues."
+    },
+    "likely_material_and_item":"plastic bottle"
+}
+END
+
+pizza box
+
+pizza_box_info = {
+    "positives": {
+        "Recyclability": "Cardboard pizza boxes are recyclable and can be turned into new paper products."
+    },
+    "negatives": {
+        "Contamination": "Grease and food residue can make some pizza boxes unrecyclable, leading to landfill disposal.",
+        "Resource Waste": "Discarding cardboard pizza boxes wastes valuable paper resources."
+    },
+    "recycling_options": {
+        "New Paper Products": "They can be recycled into new paper products like cardboard, paperboard, and more."
+    },
+    "interesting_facts": {
+        "Clean Before Recycling": "To ensure recycling, remove any leftover pizza and separate the greasy top from the clean bottom of the box."
+    },
+    "likely_material_and_item":"Cardboard box"
+}
+END
+
+glass bottle
+
+glass_bottle_info = {
+    "positives": {
+        "Infinite Recyclability": "Glass bottles are 100% recyclable and can be recycled endlessly."
+    },
+    "negatives": {
+        "Landfill Impact": "If not recycled, glass bottles can take thousands of years to decompose in landfills.",
+        "Waste Volume": "Glass waste can fill landfills and contribute to environmental problems."
+    },
+    "recycling_options": {
+        "New Glass Products": "Glass bottles can be recycled into new glass containers, bottles, and fiberglass."
+    },
+    "interesting_facts": {
+        "Endless Recycling": "Glass recycling preserves resources and reduces energy consumption in production."
+    },
+    "likely_material_and_item":"glass bottle"
+}
+END
+
+"""
+
+ibm_pollution_prompt_template="""
+I will give you a string of text. Inside the text there is reference to a particular item. Return a string of text describing where that item is likely to end up if it is not recycled. Give me its final destination and not just "the trash". Describe the place as if it were a real place, with detail. Your answer needs to provide a vivid location in a way that creates a mental image, including details like the surroundings, conditions, and any relevant elements. Incorporate environmental impact: Include some reference to the impact on the environment, wildlife, or the ecosystem in the described location to highlight the consequences of improper disposal. Realistic, the resulting location should be realistic and plausible, ensuring that it aligns with how waste is typically disposed of in the real world
+
+Glass bottle
+
+Within an abandoned lot, piled alongside broken glass shards and rusty metal, casting reflections of an untamed urban jungle.
+
+Aluminum can
+
+Hidden within a neglected city park, entangled with rusted playground equipment and plastic bags, tarnishing the beauty of once vibrant greenery.
+
+Cardboard box
+
+Lurking in a crowded city alley, lost among cardboard brethren, forming a makeshift maze under the shadow of towering skyscrapers.
+
+Newspaper
+
+Abandoned in a desolate street corner, amid a stack of discarded papers, bearing witness to the relentless march of time and neglect in the heart of the city.
+
+Plastic grocery bag
+
+Drifting in the breeze along a neglected riverbank, ensnaring branches and choking aquatic life, transforming a serene waterside into a plastic-laden wasteland.
+
+Tin can
+
+Resting in a forgotten roadside ditch, gathering rust and debris, slowly corroding within earshot of chirping birds and distant fields.
+
+Old cell phone
+
+Lost amidst a heap of electronic waste in a shadowy e-waste recycling facility, a graveyard for obsolete technology that once held our digital memories.
+
+Plastic straw
+
+Abandoned on a quiet forest trail, contrasting starkly with the natural beauty, posing a threat to wildlife and tarnishing the tranquil woods.
+
+Styrofoam container
+
+Drifting in a stagnant urban pond, nestled amongst algae and litter, marring the tranquility of a once picturesque oasis.
+
+Plastic cutlery
+
+Buried beneath layers of discarded fast food containers and wrappers, disrupting the serenity of a city park, where nature struggles to survive amid human excess.
 
 """
 
