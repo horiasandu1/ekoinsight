@@ -59,7 +59,7 @@ export default function SignIn() {
     if (googleUser) {
       axios
         .get(
-          `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${googleUser.credential}`,
+          `https://www.googleapis.com/oauth2/v1/userinfo`,
           {
             headers: {
               Authorization: `Bearer ${googleUser.credential}`,
