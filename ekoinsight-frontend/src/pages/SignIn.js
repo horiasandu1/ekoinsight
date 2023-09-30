@@ -1,4 +1,6 @@
 import * as React from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -13,7 +15,8 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { GoogleLogin } from "@react-oauth/google";
+
+import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
 
 function Copyright(props) {
   return (
@@ -38,22 +41,38 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignIn() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+  const handleSuccessLogin = (resp) => {
+    console.log("Login successful !");
+    setGoogleUser(resp);
+    console.log(googleUser);
+    console.log(`Access token ${googleUser.credential}`)
   };
 
-  const logSuccessMsg = (resp) => {
-    console.log("Login successful ! " + resp);
-  }
-
-  const logErrorMsg = (err) => {
+  const handleErrorLogin = (err) => {
     console.log("Login error !" + err);
-  }
+  };
+
+  const [googleUser, setGoogleUser] = useState([]);
+  const [userProfile, setUserProfile] = useState([]);
+
+  useEffect(() => {
+    if (googleUser) {
+      axios
+        .get(
+          `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${googleUser.credential}`,
+          {
+            headers: {
+              Authorization: `Bearer ${googleUser.credential}`,
+              Accept: "application/json",
+            },
+          }
+        )
+        .then((res) => {
+          setUserProfile(res.data);
+        })
+        .catch((err) => console.log(err));
+    }
+  });
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -73,13 +92,19 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <GoogleLogin onSuccess={logSuccessMsg} onError={logErrorMsg}/>
+          <br></br>
+          <GoogleLogin
+            text="continue_with"
+            size="large"
+            onSuccess={handleSuccessLogin}
+            onError={handleErrorLogin}
+          />
 
-          <Box
+          {/* <Box
             component="form"
             onSubmit={handleSubmit}
             noValidate
-            sx={{ mt: 1 }}
+            sx={{ mt: 3, mb: 2}}
           >
             <TextField
               margin="normal"
@@ -125,7 +150,7 @@ export default function SignIn() {
                 </Link>
               </Grid>
             </Grid>
-          </Box>
+          </Box> */}
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
