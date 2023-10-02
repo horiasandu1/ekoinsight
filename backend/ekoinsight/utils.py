@@ -28,6 +28,7 @@ def load_config():
 
 
 def check_create_folder(dir):
+    breakpoint()
     if not os.path.isdir(dir):
         os.makedirs(dir)
         print("created folder : ", dir)

@@ -1,7 +1,7 @@
 import replicate
 import os
 import requests
-from BotCapabilities.ApiReplicate import ApiReplicate
+from . import ApiReplicate
 
 class ApiSfxReplicate(ApiReplicate):
     def __init__(self,dry_run=False):

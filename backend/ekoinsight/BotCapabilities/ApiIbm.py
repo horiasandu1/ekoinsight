@@ -1,5 +1,5 @@
 import os
-from BotCapabilities.ApiClass import ApiClass
+from .ApiClass import ApiClass
 from ibm_watson_machine_learning.foundation_models.utils.enums import ModelTypes
 from ibm_watson_machine_learning.foundation_models import Model
 

@@ -1,7 +1,7 @@
 from base64 import b64decode
 import os
-from BotCapabilities.ApiOpenAi import ApiOpenAi
-from templates import *
+from .ApiOpenAi import ApiOpenAi
+from ..templates import *
 import openai
 
 class ApiImgOpenAi(ApiOpenAi):

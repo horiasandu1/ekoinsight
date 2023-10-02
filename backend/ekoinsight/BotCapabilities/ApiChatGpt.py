@@ -1,8 +1,8 @@
 import os
-from BotCapabilities.ApiOpenAi import ApiOpenAi
-from BotCapabilities.BotClass import BotClass
+from .ApiOpenAi import ApiOpenAi
+from .BotClass import BotClass
 
-from templates import *
+from ..templates import *
 from langchain import PromptTemplate
 from langchain.llms import OpenAI
 from langchain.chat_models import ChatOpenAI

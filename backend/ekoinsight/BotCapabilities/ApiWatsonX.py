@@ -1,6 +1,6 @@
 import os
-from BotCapabilities.ApiIbm import ApiIbm
-from templates import *
+from .ApiIbm import ApiIbm
+from ..templates import *
 from langchain import PromptTemplate
 from langchain.llms import OpenAI
 

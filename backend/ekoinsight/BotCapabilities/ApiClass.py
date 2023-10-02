@@ -1,12 +1,12 @@
 from abc import ABC, abstractmethod
 import os
 from dotenv import load_dotenv 
-from utils import load_config
+from ..utils import load_config
 from langchain.vectorstores import Pinecone
 import pinecone
 from langchain.embeddings import HuggingFaceEmbeddings
 from dotenv import load_dotenv
-from utils import *
+from .. import utils
 from langchain.document_loaders.merge import MergedDataLoader
 from langchain.text_splitter import CharacterTextSplitter
 import time

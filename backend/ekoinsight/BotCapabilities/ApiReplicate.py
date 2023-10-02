@@ -1,5 +1,5 @@
 import os
-from BotCapabilities.ApiClass import ApiClass
+from .ApiClass import ApiClass
 
 
 class ApiReplicate(ApiClass):

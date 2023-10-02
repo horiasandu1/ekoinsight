@@ -1,10 +1,10 @@
 
 
-from BotCapabilities.BotClass import BotClass
-from templates import *
+from .BotClass import BotClass
+from ..templates import *
 import random
 import json
-from utils import *
+from ..utils import *
 
 class BotStory(BotClass):
     def __init__(self, config_data,story_provider, img_provider=None,sfx_provider=None,nber_pages=5):

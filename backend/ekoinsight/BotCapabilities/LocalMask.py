@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from tqdm import tqdm
 
-from BotCapabilities.BotClass import BotClass
-from utils import *
+from .BotClass import BotClass
+from ..utils import *
 
 
 class LocalMask(BotClass):

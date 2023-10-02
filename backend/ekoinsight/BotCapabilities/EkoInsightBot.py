@@ -1,8 +1,8 @@
 
 
-from BotCapabilities.BotClass import BotClass
-from templates import *
-from utils import *
+from .BotClass import BotClass
+from ..templates import *
+from ..utils import *
 import time
 from dotenv import load_dotenv
 

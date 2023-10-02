@@ -1,9 +1,9 @@
 import os
-from BotCapabilities.ApiClass import ApiClass
+from .ApiClass import ApiClass
 
 
-class ApiDreamStudio(ApiClass):
-    def __init__(self,API_NAME="DREAMSTUDIO",dry_run=False):
+class ApiOpenAi(ApiClass):
+    def __init__(self,API_NAME="OPENAI",dry_run=False):
         super().__init__(API_NAME,dry_run)
 
     # def save_file(self,object_to_save, local_filename):
