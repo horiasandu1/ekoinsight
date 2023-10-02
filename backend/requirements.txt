@@ -21,7 +21,7 @@ firebase-admin==6.2.0
 firebase
 google-cloud-storage==2.10.0
 uvicorn
-fastapi
+flask
 python-multipart
 ibm-watson-machine-learning
 chromadb
