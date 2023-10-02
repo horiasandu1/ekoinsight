@@ -5,6 +5,7 @@ import ReactDOM from "react-dom/client";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import SignIn from "./pages/SignIn";
 import Home from "./pages/Home";
+import AuthLanding from "./pages/AuthLanding";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
           <Route path="/">
             <Route index element={<Home />}></Route>
             <Route path="signin" element={<SignIn />}></Route>
+            <Route path="landing" element={<AuthLanding />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>
