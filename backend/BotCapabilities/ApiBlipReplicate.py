@@ -39,14 +39,18 @@ class ApiBlipReplicate(ApiReplicate):
         return main_subject
 
     
-    def api_fetch(self,img_path,sfx_string="salesforce/blip:2e1dddc8621f72155f24cf2e0adbde548458d3cab9f00c0139eea840d0ac4746"):
+    def api_fetch(self,img_path,
+                  #sfx_string="salesforce/blip:2e1dddc8621f72155f24cf2e0adbde548458d3cab9f00c0139eea840d0ac4746"
+                  sfx_string="andreasjansson/blip-2:4b32258c42e9efd4288bb9910bc532a69727f9acd26aa08e175713a0a857a608"
+                  ):
         response='Caption : can of kombucha on windowsill'
         if not self.dry_run:
             response = replicate.Client(api_token=self.api_key).run(
                 sfx_string,
                 input={"image": open(img_path, "rb"),
-                    "task":"image_captioning",
-                    "question":"Describe the object"}
+                    #"task":"image_captioning",
+                    "question":"Describe the object"
+                    }
             )
 
         return self.get_main_subject(response)

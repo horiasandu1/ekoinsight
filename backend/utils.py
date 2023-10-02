@@ -33,17 +33,10 @@ def check_create_folder(dir):
         print("created folder : ", dir)
 
 
-def sanitize_file_name(input_string):
-    # Remove characters that are not letters, digits, spaces, hyphens, underscores, or periods
-    sanitized_string = re.sub(r'[^\w\s\-\.]', '', input_string)
-    
-    # Replace spaces with underscores
-    sanitized_string = sanitized_string.replace(' ', '_')
-    
-    # Remove leading and trailing spaces
-    sanitized_string = sanitized_string.strip()
-    
-    return sanitized_string
+def absolute_file_paths(directory):
+    for dirpath,_,filenames in os.walk(directory):
+        for f in filenames:
+            yield os.path.abspath(os.path.join(dirpath, f))
 
 def resize_img(image,square=False,square_dim=512):
 
@@ -90,10 +83,10 @@ def resize_img(image,square=False,square_dim=512):
 
 
 
-def absolute_file_paths(directory):
+def document_file_paths(directory):
     for dirpath,_,filenames in os.walk(directory):
         for f in filenames:
-            yield os.path.abspath(os.path.join(dirpath, f))
+            yield f
 
 
 

@@ -23,19 +23,21 @@ Is there a fun fact about the recyclable material of the main character? Make su
 
 
 pollution_prompt_template="""
-I will give you a string of text. Inside the text there is reference to a particular item. Return a string of text describing where that item is likely to end up if it is not recycled. Describe the place as if it were a real place, with detail. 
+I will give you a string of text. Inside the text there is reference to a particular item. Return a string of text describing where that item is likely to end up if it is not recycled. Describe the place as if it were a real place, with detail. Make no mention of cemeteries. 
 
-I want one line describing where it ends up. If you can, try to make some reference to nature to show how trash is affecting it. Make sure the resulting area is realistic.
+I want one line describing where it ends up. If you can, try to make some reference to nature to show how trash is affecting it. 
 
 Example:
 
-can of soda
+can of soda 
+trash in a landfill surrounded by other trash. In the background you see some trees from a forest.
 
-in a landfill surrounded by other trash. In the background you see some trees from a forest.
+plastic bottle 
+trash on a beach next to other trash. In the background you see waves and animals in the distance
 
-plastic bottle
+Make sure the resulting area is realistic and refers to trash.
 
-on a beach next to other trash. In the background you see waves and animals in the distance
+Give me the answer for 
 
 """
 
@@ -63,7 +65,7 @@ soda_can_info = {
         "Infinitely Recyclable": "Aluminum is infinitely recyclable, meaning it can be recycled repeatedly without losing quality.",
         "Laptop Power": "The energy saved from recycling one aluminum can could indeed power a laptop for up to five hours.",
         "Environmental Impact": "Recycling aluminum reduces the need for mining bauxite, which can harm ecosystems and water sources."
-    }
+    },
     "likely_material_and_item":"aluminum can"
 }
 
@@ -151,7 +153,7 @@ soda_can_info = {
         "Infinitely Recyclable": "Aluminum is infinitely recyclable, meaning it can be recycled repeatedly without losing quality.",
         "Laptop Power": "The energy saved from recycling one aluminum can could indeed power a laptop for up to five hours.",
         "Environmental Impact": "Recycling aluminum reduces the need for mining bauxite, which can harm ecosystems and water sources."
-    }
+    },
     "likely_material_and_item":"aluminum can"
 }
 END
@@ -223,45 +225,72 @@ I will give you a string of text. Inside the text there is reference to a partic
 
 Glass bottle
 
-Within an abandoned lot, piled alongside broken glass shards and rusty metal, casting reflections of an untamed urban jungle.
+Within an abandoned lot, trash piled alongside broken glass shards and rusty metal, casting reflections of an untamed urban jungle.
 
 Aluminum can
 
-Hidden within a neglected city park, entangled with rusted playground equipment and plastic bags, tarnishing the beauty of once vibrant greenery.
+Hidden within a neglected city park, trash entangled with rusted playground equipment and plastic bags, tarnishing the beauty of once vibrant greenery.
 
 Cardboard box
 
-Lurking in a crowded city alley, lost among cardboard brethren, forming a makeshift maze under the shadow of towering skyscrapers.
+Lurking in a crowded city alley, trash lost among cardboard brethren, forming a makeshift maze under the shadow of towering skyscrapers.
 
 Newspaper
 
-Abandoned in a desolate street corner, amid a stack of discarded papers, bearing witness to the relentless march of time and neglect in the heart of the city.
+Abandoned in a desolate street corner, trash amid a stack of discarded papers, bearing witness to the relentless march of time and neglect in the heart of the city.
 
 Plastic grocery bag
 
-Drifting in the breeze along a neglected riverbank, ensnaring branches and choking aquatic life, transforming a serene waterside into a plastic-laden wasteland.
+Drifting in the breeze along a neglected riverbank, trash ensnaring branches and choking aquatic life, transforming a serene waterside into a plastic-laden wasteland.
 
 Tin can
 
-Resting in a forgotten roadside ditch, gathering rust and debris, slowly corroding within earshot of chirping birds and distant fields.
+Resting in a forgotten roadside ditch, trash gathering rust and debris, slowly corroding within earshot of chirping birds and distant fields.
 
 Old cell phone
 
-Lost amidst a heap of electronic waste in a shadowy e-waste recycling facility, a graveyard for obsolete technology that once held our digital memories.
+Lost amidst a heap of electronic waste in a shadowy e-waste recycling facility, a trash dump for obsolete technology that once held our digital memories.
 
 Plastic straw
 
-Abandoned on a quiet forest trail, contrasting starkly with the natural beauty, posing a threat to wildlife and tarnishing the tranquil woods.
+Abandoned on a quiet forest trail, trash contrasting starkly with the natural beauty, posing a threat to wildlife and tarnishing the tranquil woods.
 
 Styrofoam container
 
-Drifting in a stagnant urban pond, nestled amongst algae and litter, marring the tranquility of a once picturesque oasis.
+Drifting in a stagnant urban pond, trash nestled amongst algae and litter, marring the tranquility of a once picturesque oasis.
 
 Plastic cutlery
 
-Buried beneath layers of discarded fast food containers and wrappers, disrupting the serenity of a city park, where nature struggles to survive amid human excess.
+Buried beneath layers of discarded fast food containers and wrappers, trash disrupting the serenity of a city park, where nature struggles to survive amid human excess.
 
 """
+dry_run_picture="kombucha_test.png"
+
+dry_run_pollution_prompt_template='On an overfilled landfill, amidst other discarded objects, with the skyline painting a solemn picture of distant hills and dying trees'
+
+dry_run_educate_prompt_template="""soda_can_info = {
+                "positives": {
+                    "Energy Conservation": "Recycling one aluminum can saves enough energy to power a laptop for up to five hours.",
+                    "Greenhouse Gas Reduction": "Recycling aluminum reduces carbon emissions by approximately 95% compared to producing new aluminum."
+                },
+                "negatives": {
+                    "Landfill Impact": "If not recycled, soda cans can take 200-500 years to decompose in landfills.",
+                    "Waste Volume": "Over 60% of aluminum cans in the United States are currently recycled, but the remainder contributes to landfill waste."
+                },
+                "recycling_options": {
+                    "New Aluminum Cans": "Soda cans can be recycled into new aluminum cans.",
+                    "Other Aluminum Products": "They can also be used to make products like bicycle frames, car parts, and construction materials."
+                },
+                "interesting_facts": {
+                    "Infinitely Recyclable": "Aluminum is infinitely recyclable, meaning it can be recycled repeatedly without losing quality.",
+                    "Laptop Power": "The energy saved from recycling one aluminum can could indeed power a laptop for up to five hours.",
+                    "Environmental Impact": "Recycling aluminum reduces the need for mining bauxite, which can harm ecosystems and water sources."
+                },
+                "likely_material_and_item":"aluminum can"
+            }"""
+
+dry_run_index_fetch={'result': ' Americans throw away enough aluminum to rebuild the US commercial air fleet every 3 months. 105,800 aluminum cans are recycled every minute in the US. Recycling a single aluminum can could power a television for 3 hours. It is estimated that around 75% of all the aluminum ever produced is still in use today.', 'source': 'https://www.rts.com/blog/recycling-facts-statistics/'}
+
 
 
 dry_run_story="""

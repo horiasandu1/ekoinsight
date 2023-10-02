@@ -7,20 +7,20 @@ class BotClass():
         # LOAD ENV CONFIG
         self.config=load_config()
         self.dry_run = dry_run
-        self.onnx_model_path = self.config["ImgProcess"]["models"]["onnx"]
-        self.checkpoint = self.config["ImgProcess"]["models"]["checkpoint"]
-        self.mask_output_dir = self.config["ImgProcess"]["masks"]["output_paths"][
+        self.onnx_model_path = self.config["img_process"]["models"]["onnx"]
+        self.checkpoint = self.config["img_process"]["models"]["checkpoint"]
+        self.mask_output_dir = self.config["img_process"]["masks"]["output_paths"][
             "masks"
         ]
-        self.except_mask_output_dir = self.config["ImgProcess"]["masks"][
+        self.except_mask_output_dir = self.config["img_process"]["masks"][
             "output_paths"
         ]["except_masks"]
-        self.img_input_dir = self.config["ImgProcess"]["masks"]["input_paths"]["imgs"]
-        self.blurred_img_input_dir = self.config["ImgProcess"]["masks"]["input_paths"]["blurred_imgs"]
-        self.inpaint_output_dir = self.config["ImgDreamStudio"]["output_paths"][
+        self.img_input_dir = self.config["img_process"]["masks"]["input_paths"]["imgs"]
+        self.blurred_img_input_dir = self.config["img_process"]["masks"]["input_paths"]["blurred_imgs"]
+        self.inpaint_output_dir = self.config["img_dreamstudio"]["output_paths"][
             "inpaint_save_path"
         ]
-        self.generation_output_dir = self.config["ImgDreamStudio"]["output_paths"][
+        self.generation_output_dir = self.config["img_dreamstudio"]["output_paths"][
             "generation_save_path"
         ]
         # making sure needed folders exist

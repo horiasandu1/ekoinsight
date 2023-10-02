@@ -4,17 +4,17 @@
     "input_paths": {
         "imgs": "inputs/imgs/"
     },
-    "ImgDreamStudio": {
+    "img_dreamstudio": {
         "engines": {
             "inpainting_engine": "stable-inpainting-512-v2-0",
-            "generation_engine": "stable-diffusion-xl-beta-v2-2-2"
+            "generation_engine": "stable-diffusion-xl-1024-v1-0"
         },
         "output_paths": {
             "generation_save_path": "outputs/dreamstudio/generation_imgs/",
             "inpaint_save_path": "outputs/dreamstudio/inpaint_imgs/"
         }
     },
-    "ImgProcess": {
+    "img_process": {
         "models": {
             "onnx": "models/onnx_model_multi_quantized.onnx",
             "checkpoint": "models/sam_vit_h_4b8939.pth"
@@ -33,6 +33,14 @@
             "output_paths": {
                 "blips": "outputs/blips/"
             }
+        }
+    },
+    "text_process": {
+        "pollution_prompt": {
+            "output_path": ""
+        },
+        "educate_prompt": {
+            "output_path": ""
         }
     }
 }

@@ -17,6 +17,7 @@ class EkoInsightBot(BotClass):
         self.img_filename=""
         self.img_input_dir=self.config['input_paths']['imgs']
         self.identified_object=identified_object
+        self.pollution_prompt=""
 
     def execute(self,img_filename,img_path=None):
         self.img_filename=img_filename
@@ -26,30 +27,27 @@ class EkoInsightBot(BotClass):
             self.img_input_dir=img_path
         self.img_full_path=self.img_input_dir+self.img_filename
 
-        ###IMG GENERATION PART
-        if not self.identified_object:
-            start=time.time()
-            self.identified_object=self.img_identifier.execute(img_path=self.img_full_path) 
-            print(f"img identified : {self.identified_object} : took {time.time()-start}s") #takes about 3 seconds
+        start=time.time()
+        self.identified_object=self.img_identifier.execute(img_path=self.img_full_path) 
+        print(f"img identified : {self.identified_object} : took {time.time()-start}s") #takes about 3 seconds
 
         start=time.time()
-        mask_path=self.mask_provider.execute(img_path=self.img_full_path)
+        mask_dict=self.mask_provider.execute(img_path=self.img_full_path)
+        mask_path=mask_dict['mask_path']
+        img_mask_pct=mask_dict['img_mask_pct']
         print(f"mask path provided : {mask_path} : took {time.time()-start}s")#takes about 33 seconds!
 
         start=time.time()
-        pollution_prompt=self.prompt_provider.fetch_prompt(item=self.identified_object,prompt_template='pollution_prompt_template')
-        pollution_prompt+=" realistic, high definition, polluted"
+        self.pollution_prompt=self.prompt_provider.fetch_prompt(item=self.identified_object,prompt_template='pollution_prompt_template')
+        full_pollution_prompt=f"{self.pollution_prompt} realistic, dirty pollution, dslr, soft"
+        #pollution_prompt+=" realistic, high definition, polluted"
         print(f"pollution_prompt generated : took {time.time()-start}s")
-        print(f"pollution_prompt : {pollution_prompt}")
+        print(f"pollution_prompt : {full_pollution_prompt}")
 
         start=time.time()
-        inpaint_img_path=self.img_provider.fetch_inpaint_img(img_filename=img_filename,img_path=self.img_input_dir,mask_path=mask_path,prompt=pollution_prompt)
+        inpaint_img_path=self.img_provider.fetch_inpaint_img(img_filename=img_filename,img_path=self.img_input_dir,mask_path=mask_path,prompt=full_pollution_prompt,img_mask_pct=img_mask_pct)
         print(f"inpaint_img_path produced : took {time.time()-start}s")
         print(f"inpaint_img_path : {inpaint_img_path}")
-
-
-        #return this in a format that's useful
-        #get the stats query ready.
 
 
         ####EDUCATION PART
@@ -75,9 +73,7 @@ class EkoInsightBot(BotClass):
         print(f"vectorsearch_info query : took {time.time()-start}s")
         print(f"vectorsearch_info : {vectorsearch_info}")
 
-
-
-        return {"inpaint_img_path":inpaint_img_path,"education_info":education_info,"vectorsearch_info":vectorsearch_info}
+        return {"inpaint_img_path":inpaint_img_path,"education_info":education_info,"vectorsearch_info":vectorsearch_info,"pollution_prompt":self.pollution_prompt}
 
     def identify_img(self):
         self.img_identifier.identify_img(self.img_path)

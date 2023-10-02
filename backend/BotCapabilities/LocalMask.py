@@ -14,8 +14,8 @@ class LocalMask(BotClass):
 
         super().__init__(dry_run)
 
-        self.mask_dir=self.config['ImgProcess']['masks']['output_paths']['masks']
-        self.except_mask_dir=self.config['ImgProcess']['masks']['output_paths']['except_masks']
+        self.mask_dir=self.config['img_process']['masks']['output_paths']['masks']
+        self.except_mask_dir=self.config['img_process']['masks']['output_paths']['except_masks']
         check_create_folder(self.mask_dir)
         check_create_folder(self.except_mask_dir)
 
@@ -28,11 +28,12 @@ class LocalMask(BotClass):
         self.predictor = SamPredictor(sam)
         self.ort_session = onnxruntime.InferenceSession(self.onnx_model_path)#providers='CPUExecutionProvider'
 
-    def produce_mask(self, img_path):
-        img_filename=img_path.split("/")[-1]
-        img_path=f'{img_path}{img_filename}'
-        image = cv2.imread(img_path)
-        image = self.resize_img(image, square=True)
+    def produce_mask(self):
+        # img_filename=img_path.split("/")[-1]
+        # img_path=f'{img_path}{img_filename}'
+        self.image_name=self.img_path.split("/")[-1]
+        image = cv2.imread(self.img_path)
+        #image = self.resize_img(image, square=True)
 
         ###BLURRING IMAGE
         ksize = (7, 7)
@@ -86,15 +87,15 @@ class LocalMask(BotClass):
         # print(predictor.model.mask_threshold)
         masks = masks > self.predictor.model.mask_threshold
 
-        print(f"saving mask to {self.mask_output_dir}/{img_filename}")
+        print(f"saving mask to {self.mask_output_dir}/{self.image_name}")
         self.save_mask(
             masks[0][-1],
             self.mask_output_dir,
             color="white",
             figsize=(10, 10),
-            img_filename=img_filename,
+            img_filename=self.image_name,
         )
-        return f"{self.mask_output_dir}{img_filename}"
+        return f"{self.mask_output_dir}{self.image_name}"
 
     # def mask_producer_dir(self):
     #     for img_filename in tqdm(sorted(os.listdir(self.img_input_dir))):
@@ -131,10 +132,10 @@ class LocalMask(BotClass):
         # Save the masked image
         cv2.imwrite(f"{self.except_mask_output_dir}/{img_filename}", masked_img)
 
-    def except_mask_producer_dir(self):
-        for img_filename in tqdm(sorted(os.listdir(self.img_input_dir))):
-            if img_filename.endswith("jpg") or img_filename.endswith("png"):
-                self.produce_except_mask(img_filename)
+    # def except_mask_producer_dir(self):
+    #     for img_filename in tqdm(sorted(os.listdir(self.img_input_dir))):
+    #         if img_filename.endswith("jpg") or img_filename.endswith("png"):
+    #             self.produce_except_mask(img_filename)
 
     def resize_img(self,image, square=False, square_dim=512):
         width = image.shape[1]
@@ -244,4 +245,5 @@ class LocalMask(BotClass):
         )
 
     def execute(self,img_path):
-        return self.produce_mask(img_path=img_path)
+        self.img_path=img_path
+        return self.produce_mask()

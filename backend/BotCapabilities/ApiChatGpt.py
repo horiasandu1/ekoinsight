@@ -27,9 +27,8 @@ class ApiChatGpt(ApiOpenAi):
         #     template=eval(prompt_template),
         # )
 
-        prompt=eval(prompt_template)+f" {item}"
-
         if not self.dry_run:
+            prompt=eval(prompt_template)+f" {item}"
             story=llm(prompt)
             if self.as_string:
                 return story
@@ -47,31 +46,28 @@ class ApiChatGpt(ApiOpenAi):
             return story
         
         else:
-            return "On an overfilled landfill, amidst other discarded objects, with the skyline painting a solemn picture of distant hills and dying trees"
+            return eval("dry_run_"+prompt_template)
 
     
     def fetch_using_index(self,query = "in 1990, how much paper was generated?"):
         """
         call self.produce_index_pinecone(self,index_name='cfc',docs_dir="recycling_data_dir",embeddings=None) first
         """
-        self.produce_index_pinecone(index_name='cfc',docs_dir="recycling_data")
+        if not self.dry_run:
+            self.produce_index_pinecone(index_name='cfc',docs_dir="recycling_data")
 
-        """working index
-        
-        VectorStoreRetriever(tags=['Pinecone', 'HuggingFaceEmbeddings'], metadata=None, vectorstore=<langchain.vectorstores.pinecone.Pinecone object at 0x0000025D5878E040>, search_type='mmr', search_kwargs={'k': 1})
-        
-        """
+            qa = RetrievalQA.from_chain_type(llm=OpenAI(temperature=0.5), chain_type="stuff", return_source_documents=True ,retriever=self.index.as_retriever(search_type='mmr',search_kwargs={"k":1}))
+            #qa = RetrievalQA.from_chain_type(llm=OpenAI(temperature=0.5), chain_type="stuff", return_source_documents=True ,retriever=self.index.as_retriever(search_kwargs={"k":4}))
+            #qa = RetrievalQA.from_chain_type(llm=OpenAI(temperature=0.5), chain_type="stuff",retriever=self.index.as_retriever(search_kwargs={"k":4}))
 
-        qa = RetrievalQA.from_chain_type(llm=OpenAI(temperature=0.5), chain_type="stuff", return_source_documents=True ,retriever=self.index.as_retriever(search_type='mmr',search_kwargs={"k":1}))
-        #qa = RetrievalQA.from_chain_type(llm=OpenAI(temperature=0.5), chain_type="stuff", return_source_documents=True ,retriever=self.index.as_retriever(search_kwargs={"k":4}))
-        #qa = RetrievalQA.from_chain_type(llm=OpenAI(temperature=0.5), chain_type="stuff",retriever=self.index.as_retriever(search_kwargs={"k":4}))
+            response = qa({"query": query}, return_only_outputs=True)
+            result=response['result']
+            source=response['source_documents'][0].metadata['source']
 
-        response = qa({"query": query}, return_only_outputs=True)
-        result=response['result']
-        source=response['source_documents'][0].metadata['source']
+            return {'result':result,'source':source}
 
-        return {'result':result,'source':source}
-
+        else:
+            return dry_run_index_fetch
 
 
 
