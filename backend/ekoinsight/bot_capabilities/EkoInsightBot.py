@@ -1,8 +1,6 @@
 
 
 from .BotClass import BotClass
-from ..templates import *
-from ..utils import *
 import time
 from dotenv import load_dotenv
 

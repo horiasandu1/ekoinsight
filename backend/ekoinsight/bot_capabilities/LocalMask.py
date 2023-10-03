@@ -6,7 +6,7 @@ import numpy as np
 from tqdm import tqdm
 
 from .BotClass import BotClass
-from ..utils import *
+import utils
 
 
 class LocalMask(BotClass):
@@ -16,17 +16,17 @@ class LocalMask(BotClass):
 
         self.mask_dir=self.config['img_process']['masks']['output_paths']['masks']
         self.except_mask_dir=self.config['img_process']['masks']['output_paths']['except_masks']
-        check_create_folder(self.mask_dir)
-        check_create_folder(self.except_mask_dir)
+        utils.check_create_folder(self.mask_dir)
+        utils.check_create_folder(self.except_mask_dir)
 
         self.device = device
         model_type = "default"
 
-        sam = sam_model_registry[model_type](checkpoint=self.checkpoint)
+        sam = utils.sam_model_registry[model_type](checkpoint=self.checkpoint)
         # can run this with cpu if you wanted
         sam.to(device=self.device)
-        self.predictor = SamPredictor(sam)
-        self.ort_session = onnxruntime.InferenceSession(self.onnx_model_path)#providers='CPUExecutionProvider'
+        self.predictor = utils.SamPredictor(sam)
+        self.ort_session = utils.onnxruntime.InferenceSession(self.onnx_model_path)#providers='CPUExecutionProvider'
 
     def produce_mask(self):
         # img_filename=img_path.split("/")[-1]

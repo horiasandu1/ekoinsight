@@ -1,12 +1,11 @@
 from abc import ABC, abstractmethod
 import os
 from dotenv import load_dotenv 
-from ..utils import load_config
+import utils
 from langchain.vectorstores import Pinecone
 import pinecone
 from langchain.embeddings import HuggingFaceEmbeddings
 from dotenv import load_dotenv
-from .. import utils
 from langchain.document_loaders.merge import MergedDataLoader
 from langchain.text_splitter import CharacterTextSplitter
 import time
@@ -16,7 +15,7 @@ class ApiClass(ABC):
         load_dotenv()
         self.api_key= os.getenv(f"{API_NAME}_API_KEY")
         self.provider_name = API_NAME
-        self.config=load_config()
+        self.config=utils.load_config()
         self.dry_run=dry_run
 
     def produce_index_pinecone(self,index_name='cfc',docs_dir="recycling_data_dir",embeddings=None):
@@ -39,7 +38,7 @@ class ApiClass(ABC):
             if index_name not in pinecone.list_indexes():
                 pinecone.create_index(name=index_name, dimension=384, metric="cosine")
             
-                loaders_list=get_loaders(docs_dir)
+                loaders_list=utils.get_loaders(docs_dir)
                 loader_all = MergedDataLoader(loaders=loaders_list)
                 docs=loader_all.load()
 
@@ -48,7 +47,7 @@ class ApiClass(ABC):
                     if file_path.endswith(".txt"):
                         with open(file_path, 'r', encoding='utf-8') as file:
                             text = file.read()
-                            first_url = find_first_url(text)
+                            first_url = utils.find_first_url(text)
                             if first_url:
                                 docs[idx].metadata['source']=first_url
 

@@ -1,11 +1,9 @@
-import json
-from ..utils import *
-
+import utils
 
 class BotClass():
     def __init__(self, dry_run=False):
         # LOAD ENV CONFIG
-        self.config=load_config()
+        self.config=utils.load_config()
         self.dry_run = dry_run
         self.onnx_model_path = self.config["img_process"]["models"]["onnx"]
         self.checkpoint = self.config["img_process"]["models"]["checkpoint"]
@@ -25,7 +23,7 @@ class BotClass():
         ]
         # making sure needed folders exist
         [
-            check_create_folder(basic_dir)
+            utils.check_create_folder(basic_dir)
             for basic_dir in [
                 self.mask_output_dir,
                 self.except_mask_output_dir,

@@ -23,12 +23,12 @@ openai==0.28.0
 # google-cloud-storage==2.10.0
 # uvicorn
 flask
-hypercorn
+werkzeug<3.0.0
 # python-multipart
 ibm-watson-machine-learning
 # chromadb
 # tiktoken
-# pinecone-client
+pinecone-client
 # llama_index==0.6.23
 unstructured
 sentence-transformers

@@ -1,20 +1,16 @@
 from flask import Flask
 
-
-# from fastapi import FastAPI, UploadFile, HTTPException
-# from fastapi.responses import JSONResponse  # Import JSONResponse
-
 import os
 import json
 
 
 import flask
 
-from .BotCapabilities.EkoInsightBot import EkoInsightBot
-from .BotCapabilities.LocalMask import LocalMask
-from .BotCapabilities.ApiImgDreamStudio import ApiImgDreamStudio
-from .BotCapabilities.ApiBlipReplicate import ApiBlipReplicate
-from .BotCapabilities.ApiChatGpt import ApiChatGpt
+# from bot_capabilities.EkoInsightBot import EkoInsightBot
+# from bot_capabilities.LocalMask import LocalMask
+from bot_capabilities.ApiImgDreamStudio import ApiImgDreamStudio
+from bot_capabilities.ApiBlipReplicate import ApiBlipReplicate
+from bot_capabilities.ApiChatGpt import ApiChatGpt
 
 # app = FastAPI()
 
@@ -43,13 +39,13 @@ def load_config():
 config_data=load_config()
 
 img_identifier=ApiBlipReplicate(dry_run=True)
-mask_provider=LocalMask(dry_run=False)
+# mask_provider=LocalMask(dry_run=False)
 prompt_provider=ApiChatGpt(dry_run=True)
 img_provider=ApiImgDreamStudio(dry_run=True)
 
 sfx_provider=ApiSfxReplicate(dry_run=False)
 
-ekoinsightbot=EkoInsightBot(prompt_provider,img_provider,img_identifier,mask_provider)
+# ekoinsightbot=EkoInsightBot(prompt_provider,img_provider,img_identifier,mask_provider)
 
 print("###### EkoInsightBot READY##########")
 
@@ -57,26 +53,30 @@ input_dir=config_data['input_paths']['imgs']
 
 uploaded_image_filepath= None  # Initialize a global variable
 
-# @app.post("/upload/")
-# async def identify_image(file: UploadFile):
-#     print("upload detected")
-#     global uploaded_image_filepath  # Declare the global variable
+@app.post("/upload/")
+async def identify_image(file: UploadFile):
+    print("upload detected")
+    global uploaded_image_filepath  # Declare the global variable
 
-#     if not file.filename.lower().endswith((".jpg", ".jpeg", ".png", ".gif")):
-#         raise HTTPException(status_code=400, detail="Only image files (jpg, jpeg, png, gif) are allowed.")
+    if not file.filename.lower().endswith((".jpg", ".jpeg", ".png", ".gif")):
+        raise HTTPException(status_code=400, detail="Only image files (jpg, jpeg, png, gif) are allowed.")
 
-#     filename = f"uploaded_image_{os.urandom(4).hex()}.jpg"
-#     filepath = os.path.join(input_dir, filename)
+    filename = f"uploaded_image_{os.urandom(4).hex()}.jpg"
+    filepath = os.path.join(input_dir, filename)
 
-#     with open(filepath, "wb") as image_file:
-#         image_file.write(file.file.read())
+    with open(filepath, "wb") as image_file:
+        image_file.write(file.file.read())
 
-#     object_identification = img_identifier.execute(filepath)
-#     print("image identified")
-#     uploaded_image_filepath = filepath
-#     print(f"returning :{object_identification}")
-#     # Create a JSONResponse with a 200 status code
-#     return JSONResponse(content= {"description": object_identification}, status_code=200)
+    object_identification = img_identifier.execute(filepath)
+    print("image identified")
+    uploaded_image_filepath = filepath
+    print(f"returning :{object_identification}")
+    # Create a JSONResponse with a 200 status code
+    return JSONResponse(content= {"description": object_identification}, status_code=200)
+
+if __name__ == '__main__':
+    from werkzeug.serving import run_simple
+    run_simple('0.0.0.0', 5000, app, use_debugger=True, use_reloader=True)
 
 # @app.post("/imagine/")
 # async def imagine_image(identified_object: str):
