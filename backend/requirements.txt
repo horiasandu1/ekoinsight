@@ -21,9 +21,8 @@ openai==0.28.0
 # firebase-admin==6.2.0
 # firebase
 # google-cloud-storage==2.10.0
-# uvicorn
-flask
-werkzeug<3.0.0
+fastapi
+uvicorn
 # python-multipart
 ibm-watson-machine-learning
 # chromadb

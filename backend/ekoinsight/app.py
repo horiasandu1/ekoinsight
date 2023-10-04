@@ -1,35 +1,18 @@
-from flask import Flask
-
 import os
 import json
 
+import fastapi
 
-import flask
-
-# from bot_capabilities.EkoInsightBot import EkoInsightBot
-# from bot_capabilities.LocalMask import LocalMask
 from bot_capabilities.ApiImgDreamStudio import ApiImgDreamStudio
 from bot_capabilities.ApiBlipReplicate import ApiBlipReplicate
 from bot_capabilities.ApiChatGpt import ApiChatGpt
 
-# app = FastAPI()
-
-# Define a directory to save the uploaded images
-
-# sudo apt-add-repository ppa:redislabs/redis
-# sudo apt-get update
-# sudo apt-get upgrade
-# sudo apt-get install redis-server
-# sudo service redis-server restart
+app = fastapi.FastAPI()
 
 
-app = Flask(__name__)
-
-@app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
-
-
+@app.get("/")
+async def hello_world():
+    return {"omus?":"waldamus"}
 
 def load_config():
     CONFIG_ENV=os.getenv("CONFIG_ENV","qa-local")
@@ -43,7 +26,7 @@ img_identifier=ApiBlipReplicate(dry_run=True)
 prompt_provider=ApiChatGpt(dry_run=True)
 img_provider=ApiImgDreamStudio(dry_run=True)
 
-sfx_provider=ApiSfxReplicate(dry_run=False)
+# sfx_provider=ApiSfxReplicate(dry_run=False)
 
 # ekoinsightbot=EkoInsightBot(prompt_provider,img_provider,img_identifier,mask_provider)
 
@@ -51,15 +34,15 @@ print("###### EkoInsightBot READY##########")
 
 input_dir=config_data['input_paths']['imgs']
 
-uploaded_image_filepath= None  # Initialize a global variable
+# uploaded_image_filepath= None  # Initialize a global variable
 
 @app.post("/upload/")
-async def identify_image(file: UploadFile):
+async def identify_image(file):
     print("upload detected")
     global uploaded_image_filepath  # Declare the global variable
 
     if not file.filename.lower().endswith((".jpg", ".jpeg", ".png", ".gif")):
-        raise HTTPException(status_code=400, detail="Only image files (jpg, jpeg, png, gif) are allowed.")
+        raise werkzeug.exceptions.HTTPException(status_code=400, detail="Only image files (jpg, jpeg, png, gif) are allowed.")
 
     filename = f"uploaded_image_{os.urandom(4).hex()}.jpg"
     filepath = os.path.join(input_dir, filename)
@@ -69,14 +52,11 @@ async def identify_image(file: UploadFile):
 
     object_identification = img_identifier.execute(filepath)
     print("image identified")
-    uploaded_image_filepath = filepath
+    # uploaded_image_filepath = filepath
     print(f"returning :{object_identification}")
     # Create a JSONResponse with a 200 status code
-    return JSONResponse(content= {"description": object_identification}, status_code=200)
+    return flask.JSONResponse(content= {"description": object_identification}, status_code=200)
 
-if __name__ == '__main__':
-    from werkzeug.serving import run_simple
-    run_simple('0.0.0.0', 5000, app, use_debugger=True, use_reloader=True)
 
 # @app.post("/imagine/")
 # async def imagine_image(identified_object: str):
