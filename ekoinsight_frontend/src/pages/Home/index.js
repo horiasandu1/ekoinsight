@@ -43,7 +43,7 @@ function Home() {
         action={{
           type: "internal",
           route: "/pages/authentication/sign-in",
-          label: "Sign In",
+          label: "Get started !",
           color: "info",
         }}
         sticky

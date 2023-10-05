@@ -29,6 +29,8 @@ import Home from "layouts/pages/home";
 // Material Kit 2 React routes
 import routes from "routes";
 
+import { GoogleOAuthProvider } from "@react-oauth/google";
+
 export default function App() {
   const { pathname } = useLocation();
 
@@ -52,13 +54,15 @@ export default function App() {
     });
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Routes>
-        {getRoutes(routes)}
-        <Route path="/home" element={<Home />} />
-        <Route path="*" element={<Navigate to="/Home" />} />
-      </Routes>
-    </ThemeProvider>
+    <GoogleOAuthProvider clientId="322046876890-rmv68tp2jh1ia7um7ija4iqbsds12k7j.apps.googleusercontent.com">
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Routes>
+          {getRoutes(routes)}
+          <Route path="/home" element={<Home />} />
+          <Route path="*" element={<Navigate to="/Home" />} />
+        </Routes>
+      </ThemeProvider>
+    </GoogleOAuthProvider>
   );
 }
