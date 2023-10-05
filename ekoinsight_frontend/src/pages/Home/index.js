@@ -90,7 +90,7 @@ function Home() {
                 px={{ xs: 6, lg: 12 }}
                 mt={1}
               >
-                Photograph. Learn. Innovate with groundbreaking new ideas.
+                Photograph. Learn. Innovate.
               </MKTypography>
             </MKBox>
           </Grid>

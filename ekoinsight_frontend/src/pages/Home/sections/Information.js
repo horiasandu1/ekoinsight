@@ -64,33 +64,32 @@ function Information() {
             <Grid container spacing={3}>
               <Grid item xs={12} md={6}>
                 <DefaultInfoCard
-                  icon="content_copy"
-                  title="Full Documentation"
-                  description="Built by developers for developers. Check the foundation and you will find
-                    everything inside our documentation."
+                  icon="waves"
+                  title="Not a Fun Swim"
+                  description="Every year, approximately 8 million metric tons of plastic end up in the ocean, causing harm to marine life and ecosystems"
                 />
               </Grid>
               <Grid item xs={12} md={6}>
                 <DefaultInfoCard
-                  icon="flip_to_front"
-                  title="MUI Ready"
-                  description="The world's most popular react components library for building user interfaces."
+                  icon="power"
+                  title="Movie Time"
+                  description="In the United States alone, recycling one aluminum can saves enough energy to power a TV for three hours."
                 />
               </Grid>
             </Grid>
             <Grid container spacing={3} sx={{ mt: { xs: 0, md: 6 } }}>
               <Grid item xs={12} md={6}>
                 <DefaultInfoCard
-                  icon="price_change"
-                  title="Save Time & Money"
-                  description="Creating your design from scratch with dedicated designers can be very expensive. Start with our Design System."
+                  icon="fastfood"
+                  title="It's Getting Hot in Here"
+                  description="Globally, the food we waste is responsible for 8% of all greenhouse gas emissions."
                 />
               </Grid>
               <Grid item xs={12} md={6}>
                 <DefaultInfoCard
-                  icon="devices"
-                  title="Fully Responsive"
-                  description="Regardless of the screen size, the website content will naturally fit the given resolution."
+                  icon="lightbulb"
+                  title="Time for Something New"
+                  description="New schools of thought, like circular economies, are gaining traction. Pitch in, and share your news ideas for a brighter future."
                 />
               </Grid>
             </Grid>
