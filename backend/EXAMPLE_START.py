@@ -18,18 +18,14 @@ def load_config():
 config_data=load_config()
 
 img_identifier=ApiBlipReplicate(dry_run=False)
-#mask_provider=LocalMask(dry_run=False)
 mask_provider=ApiSegEverythingReplicate(dry_run=False)
 prompt_provider=ApiChatGpt(dry_run=False)
 #prompt_provider=ApiWatsonX(dry_run=False)
 img_provider=ApiImgDreamStudio(dry_run=False)
 
-sfx_provider=ApiSfxReplicate(dry_run=False)
-
 ekoinsightbot=EkoInsightBot(prompt_provider,img_provider,img_identifier,mask_provider)
 
-data=ekoinsightbot.execute("kombucha_test.png")
-
+data=ekoinsightbot.execute("kombutcha_test.jpg",language="French")
 """
 data will look like this
 
