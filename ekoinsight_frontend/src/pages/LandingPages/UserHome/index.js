@@ -34,7 +34,18 @@ import routes from "routes";
 // Images
 import bgImage from "assets/images/city-profile.jpg";
 
+import { useLocation } from 'react-router-dom';
+
+import { ValidateToken } from "pages/LandingPages/SignIn"
+
 function UserHome() {
+  const location = useLocation();
+  const data = JSON.parse(location.state);
+  console.log("data below")
+  console.log(data)
+
+  ValidateToken(data);
+
   return (
     <>
       <DefaultNavbar
