@@ -52,6 +52,7 @@ function Information() {
               <RotatingCardBack
                 image={bgBack}
                 title="Upvote the best ideas"
+                description="Reward creativity !"
                 action={{
                   type: "internal",
                   route: "/sections/page-sections/page-headers",

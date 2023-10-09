@@ -16,7 +16,7 @@ Coded by www.creative-tim.com
 import { useState } from "react";
 
 // react-router-dom components
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // @mui material components
 import Card from "@mui/material/Card";
@@ -51,6 +51,7 @@ function SignInBasic() {
   const handleSuccessLogin = (resp) => {
     setGoogleUser(resp);
     console.log("Login successful !");
+    console.log(resp);
     navigate("/landing", {state: JSON.stringify(resp)});
   };
 
@@ -120,26 +121,12 @@ function SignInBasic() {
                     onSuccess={handleSuccessLogin}
                     onError={handleErrorLogin}
                   />
-                  <MKButton onClick={handleLogout}>Logout</MKButton>
-                  <MKBox mt={4} mb={1}>
-                    <MKButton variant="gradient" color="info" fullWidth>
-                      sign in
+                  <MKBox textAlign="center" mt={4} mb={1}>
+                    <MKButton onClick={handleLogout} size="small" variant="gradient" color="info">
+                      Logout
                     </MKButton>
                   </MKBox>
                   <MKBox mt={3} mb={1} textAlign="center">
-                    <MKTypography variant="button" color="text">
-                      Don&apos;t have an account?{" "}
-                      <MKTypography
-                        component={Link}
-                        to="/authentication/sign-up/cover"
-                        variant="button"
-                        color="info"
-                        fontWeight="medium"
-                        textGradient
-                      >
-                        Sign up
-                      </MKTypography>
-                    </MKTypography>
                   </MKBox>
                 </MKBox>
               </MKBox>

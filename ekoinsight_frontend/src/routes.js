@@ -45,6 +45,7 @@ import CollectionsIcon from "@mui/icons-material/Collections";
 // Pages
 import ContactUs from "layouts/pages/landing-pages/contact-us";
 import SignIn from "layouts/pages/authentication/sign-in";
+import UserHome from "pages/LandingPages/UserHome";
 
 const routes = [
   {
@@ -70,6 +71,11 @@ const routes = [
             name: "sign in",
             route: "/pages/authentication/sign-in",
             component: <SignIn />,
+          },
+          {
+            name: "My Home",
+            route: "/pages/landing-pages/user-home",
+            component: <UserHome />,
           },
         ],
       },
