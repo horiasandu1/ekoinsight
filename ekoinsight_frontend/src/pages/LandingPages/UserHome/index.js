@@ -34,30 +34,30 @@ import routes from "routes";
 // Images
 import bgImage from "assets/images/city-profile.jpg";
 
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 
-import { ValidateToken } from "pages/LandingPages/SignIn"
+import { CheckIsLoggedIn } from "pages/LandingPages/SignIn";
 
 function UserHome() {
   const location = useLocation();
   const data = JSON.parse(location.state);
-  console.log("data below")
-  console.log(data)
+  console.log("data below");
+  console.log(data);
 
-  ValidateToken(data);
+  const idToken = CheckIsLoggedIn(data);
+  console.log("idToken in userhome", idToken);
 
   return (
     <>
       <DefaultNavbar
         routes={routes}
         action={{
-          type: "external",
-          route: "https://www.creative-tim.com/product/material-kit-react",
-          label: "free dowasdnload",
+          type: "internal",
+          route: "/Home",
+          label: "Home",
           color: "info",
         }}
-        transparent
-        light
+        sticky
       />
       <MKBox bgColor="white">
         <MKBox
@@ -86,11 +86,8 @@ function UserHome() {
             boxShadow: ({ boxShadows: { xxl } }) => xxl,
           }}
         >
-          <Profile />
-          <Posts />
+          <Profile idToken={idToken}/>
         </Card>
-        <Contact />
-        <Footer />
       </MKBox>
     </>
   );

@@ -24,79 +24,31 @@ import MKAvatar from "components/MKAvatar";
 import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
 
-// Images
-import profilePicture from "assets/images/bruce-mars.jpg";
-
-function Profile() {
+function Profile(idToken) {
+  // TODO: Can only get this working with the nesting
+  const profile = idToken.idToken;
   return (
     <MKBox component="section" py={{ xs: 6, sm: 12 }}>
       <Container>
         <Grid container item xs={12} justifyContent="center" mx="auto">
           <MKBox mt={{ xs: -16, md: -20 }} textAlign="center">
-            <MKAvatar src={profilePicture} alt="Burce Mars" size="xxl" shadow="xl" />
+            <MKAvatar src={profile.picture} alt="profile picture" size="xxl" shadow="xl" />
           </MKBox>
           <Grid container justifyContent="center" py={6}>
             <Grid item xs={12} md={7} mx={{ xs: "auto", sm: 6, md: 1 }}>
               <MKBox display="flex" justifyContent="space-between" alignItems="center" mb={1}>
-                <MKTypography variant="h3">Michael Roven</MKTypography>
+                <MKTypography variant="h3">Welcome {profile.given_name} !</MKTypography>
                 <MKButton variant="outlined" color="info" size="small">
-                  Follow
+                  Add create new idea here
                 </MKButton>
               </MKBox>
-              <Grid container spacing={3} mb={3}>
-                <Grid item>
-                  <MKTypography component="span" variant="body2" fontWeight="bold">
-                    323&nbsp;
-                  </MKTypography>
-                  <MKTypography component="span" variant="body2" color="text">
-                    Posts
-                  </MKTypography>
-                </Grid>
-                <Grid item>
-                  <MKTypography component="span" variant="body2" fontWeight="bold">
-                    3.5k&nbsp;
-                  </MKTypography>
-                  <MKTypography component="span" variant="body2" color="text">
-                    Followers
-                  </MKTypography>
-                </Grid>
-                <Grid item>
-                  <MKTypography component="span" variant="body2" fontWeight="bold">
-                    260&nbsp;
-                  </MKTypography>
-                  <MKTypography component="span" variant="body2" color="text">
-                    Following
-                  </MKTypography>
-                </Grid>
-              </Grid>
-              <MKTypography variant="body1" fontWeight="light" color="text">
-                Decisions: If you can&apos;t decide, the answer is no. If two equally difficult
-                paths, choose the one more painful in the short term (pain avoidance is creating an
-                illusion of equality). Choose the path that leaves you more equanimous. <br />
-                <MKTypography
-                  component="a"
-                  href="#"
-                  variant="body1"
-                  fontWeight="light"
-                  color="info"
-                  mt={3}
-                  sx={{
-                    width: "max-content",
-                    display: "flex",
-                    alignItems: "center",
-
-                    "& .material-icons-round": {
-                      transform: `translateX(3px)`,
-                      transition: "transform 0.2s cubic-bezier(0.34, 1.61, 0.7, 1.3)",
-                    },
-
-                    "&:hover .material-icons-round, &:focus .material-icons-round": {
-                      transform: `translateX(6px)`,
-                    },
-                  }}
-                >
-                  More about me <Icon sx={{ fontWeight: "bold" }}>arrow_forward</Icon>
-                </MKTypography>
+              <MKTypography variant="body2" fontWeight="light" color="text">
+                The world is in need of your ideas. Take glass bottles for example. We all know they
+                should go in the recycling bin, yet they still produce a considerable amount of
+                waste. <br />
+                <br />
+                This is where you come in.<br /><br/>
+                Your idea can be as small or as big as you like. It can describe ways families can reduce their waste or make better use of glass bottles past their intended lifecycle, or perhaps it may change the way we deal with certain things on a global scale.
               </MKTypography>
             </Grid>
           </Grid>

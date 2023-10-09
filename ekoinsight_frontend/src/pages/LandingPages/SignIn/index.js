@@ -42,29 +42,32 @@ import bgImage from "assets/images/bg-sign-in-basic.jpeg";
 // Ouath
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
 
-export function ValidateToken(data) {
+export function CheckIsLoggedIn(data) {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (data) {
-      console.log("Confirmed token was present.");
-      console.log(data);
+  if (data) {
+    console.log("Confirmed token was present.");
+    console.log(data);
 
-      let decodedToken = jwtDecode(data.credential);
-      console.log("Decoded token", decodedToken);
-      let currentDate = new Date();
+    let decodedToken = jwtDecode(data.credential);
+    console.log("Decoded token", decodedToken);
+    let currentDate = new Date();
 
-      if (decodedToken.exp * 1000 < currentDate.getTime()) {
-        console.log("Token expired.");
+    if (decodedToken.exp * 1000 < currentDate.getTime()) {
+      console.log("Token expired.");
+      useEffect(() => {
         navigate("/pages/authentication/sign-in");
-      } else {
-        console.log("Valid token");
-      }
+      });
     } else {
-      console.log("Could not find token, ");
-      navigate("/pages/authentication/sign-in");
+      console.log("Valid token");
+      return decodedToken;
     }
-  });
+  } else {
+    console.log("Could not find token, ");
+    useEffect(() => {
+      navigate("/pages/authentication/sign-in");
+    });
+  }
 }
 
 function SignInBasic() {
@@ -94,13 +97,12 @@ function SignInBasic() {
       <DefaultNavbar
         routes={routes}
         action={{
-          type: "external",
-          route: "https://www.creative-tim.com/product/material-kit-react",
-          label: "free download",
+          type: "internal",
+          route: "/Home",
+          label: "Home",
           color: "info",
         }}
-        transparent
-        light
+        sticky
       />
       <MKBox
         position="absolute"
