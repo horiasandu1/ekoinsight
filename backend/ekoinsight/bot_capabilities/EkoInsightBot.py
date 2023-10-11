@@ -20,6 +20,42 @@ class EkoInsightBot(BotClass):
         self.identified_object_alt_language=identified_object
         self.pollution_prompt=""
 
+    def feed(self,img_filename,img_path=None,language="English"):
+        self.language=language
+        self.prompt_provider.set_language(self.language)
+        self.img_filename=img_filename
+
+        score=0
+        
+        #VECTORSEARCH NEEDS TO BE IN ENGLISH, ARTICLES ARE IN ENGLISH
+        if img_path:
+            if not img_path.endswith("/"):
+                img_path+="/"
+            self.img_input_dir=img_path
+        self.img_full_path=self.img_input_dir+self.img_filename
+
+        start=time.time()
+        self.identified_object=self.img_identifier.execute(img_path=self.img_full_path)
+
+        print(f"img identified took {time.time()-start}s") #takes about 3 seconds
+
+        start=time.time()
+        rationale=self.prompt_provider.fetch_prompt(item=self.identified_object,prompt_template='tamagotchi_personality',max_tokens=1000, stop_sequences= ["END"])
+        print(f"rationale generated : took {time.time()-start}s")
+
+        if self.language!="English":
+            rationale=self.prompt_provider.translate(rationale,self.language)
+            
+        #watsonx needs all the help it can get
+        if score==0 or "score" in rationale:
+            start_index = rationale.find("{")
+            end_index = rationale.rfind("}") + 1
+            dictionary_string = rationale[start_index:end_index]
+            return eval(dictionary_string)
+        else:
+            return {"score":score,"rationale":rationale}
+
+
     def execute(self,img_filename,img_path=None,language="English"):
         self.language=language
         self.prompt_provider.set_language(self.language)
