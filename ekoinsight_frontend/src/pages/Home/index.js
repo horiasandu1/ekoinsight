@@ -72,7 +72,6 @@ function Home() {
             >
               <MKTypography
                 variant="h1"
-                color="black"
                 textAlign="center"
                 sx={({ breakpoints, typography: { size } }) => ({
                   [breakpoints.down("md")]: {
@@ -84,8 +83,7 @@ function Home() {
               </MKTypography>
               <MKTypography
                 variant="body1"
-                color="black"
-                fontweight="bold"
+                fontWeight="bold"
                 textAlign="center"
                 px={{ xs: 6, lg: 12 }}
                 mt={1}

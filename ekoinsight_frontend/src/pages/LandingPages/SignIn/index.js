@@ -13,10 +13,10 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // react-router-dom components
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // @mui material components
 import Card from "@mui/material/Card";
@@ -34,11 +34,41 @@ import SimpleFooter from "examples/Footers/SimpleFooter";
 // Material Kit 2 React page layout routes
 import routes from "routes";
 
+import jwtDecode from "jwt-decode";
+
 // Images
 import bgImage from "assets/images/bg-sign-in-basic.jpeg";
 
 // Ouath
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
+
+export function CheckIsLoggedIn(data) {
+  const navigate = useNavigate();
+
+  if (data) {
+    console.log("Confirmed token was present.");
+    console.log(data);
+
+    let decodedToken = jwtDecode(data.credential);
+    console.log("Decoded token", decodedToken);
+    let currentDate = new Date();
+
+    if (decodedToken.exp * 1000 < currentDate.getTime()) {
+      console.log("Token expired.");
+      useEffect(() => {
+        navigate("/pages/authentication/sign-in");
+      });
+    } else {
+      console.log("Valid token");
+      return decodedToken;
+    }
+  } else {
+    console.log("Could not find token, ");
+    useEffect(() => {
+      navigate("/pages/authentication/sign-in");
+    });
+  }
+}
 
 function SignInBasic() {
   const navigate = useNavigate();
@@ -46,12 +76,12 @@ function SignInBasic() {
   const [userProfile, setUserProfile] = useState([]);
   console.log(googleUser);
   console.log(userProfile);
-  console.log(setUserProfile);
 
   const handleSuccessLogin = (resp) => {
     setGoogleUser(resp);
     console.log("Login successful !");
-    navigate("/landing", {state: JSON.stringify(resp)});
+    console.log(resp);
+    navigate("/pages/landing-pages/user-home", { state: JSON.stringify(resp) });
   };
 
   const handleErrorLogin = (err) => {
@@ -67,13 +97,12 @@ function SignInBasic() {
       <DefaultNavbar
         routes={routes}
         action={{
-          type: "external",
-          route: "https://www.creative-tim.com/product/material-kit-react",
-          label: "free download",
+          type: "internal",
+          route: "/Home",
+          label: "Home",
           color: "info",
         }}
-        transparent
-        light
+        sticky
       />
       <MKBox
         position="absolute"
@@ -120,27 +149,12 @@ function SignInBasic() {
                     onSuccess={handleSuccessLogin}
                     onError={handleErrorLogin}
                   />
-                  <MKButton onClick={handleLogout}>Logout</MKButton>
-                  <MKBox mt={4} mb={1}>
-                    <MKButton variant="gradient" color="info" fullWidth>
-                      sign in
+                  <MKBox textAlign="center" mt={4} mb={1}>
+                    <MKButton onClick={handleLogout} size="small" variant="gradient" color="info">
+                      Logout
                     </MKButton>
                   </MKBox>
-                  <MKBox mt={3} mb={1} textAlign="center">
-                    <MKTypography variant="button" color="text">
-                      Don&apos;t have an account?{" "}
-                      <MKTypography
-                        component={Link}
-                        to="/authentication/sign-up/cover"
-                        variant="button"
-                        color="info"
-                        fontWeight="medium"
-                        textGradient
-                      >
-                        Sign up
-                      </MKTypography>
-                    </MKTypography>
-                  </MKBox>
+                  <MKBox mt={3} mb={1} textAlign="center"></MKBox>
                 </MKBox>
               </MKBox>
             </Card>

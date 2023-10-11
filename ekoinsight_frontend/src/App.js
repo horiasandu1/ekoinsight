@@ -54,7 +54,7 @@ export default function App() {
     });
 
   return (
-    <GoogleOAuthProvider clientId="322046876890-rmv68tp2jh1ia7um7ija4iqbsds12k7j.apps.googleusercontent.com">
+    <GoogleOAuthProvider clientId="322046876890-so92apiaa9lmnt968dj80o1hkgqopiqp.apps.googleusercontent.com">
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Routes>
